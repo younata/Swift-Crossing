@@ -9,6 +9,8 @@
 import SceneKit
 
 class GameView: SCNView {
+
+    var character : Character? = nil
     
     override func mouseDown(theEvent: NSEvent) {
         /* Called when a mouse click occurs */
@@ -45,6 +47,16 @@ class GameView: SCNView {
         }
         
         super.mouseDown(theEvent)
+    }
+
+    override func keyDown(theEvent: NSEvent) {
+        super.keyDown(theEvent)
+        character?.keyDown(theEvent.keyCode)
+    }
+
+    override func keyUp(theEvent: NSEvent) {
+        super.keyUp(theEvent)
+        character?.keyUp(theEvent.keyCode)
     }
 
 }

@@ -9,14 +9,22 @@
 import SceneKit
 
 class LandScape {
-    let contents : SCNNode
+    lazy var contents : SCNNode = {
+        return self.generateLandScape()
+    }()
 
     init() {
+    }
+
+    private func generateLandScape() -> SCNNode {
         let floor = SCNFloor()
         floor.reflectivity = 0
+
         let mat = SCNMaterial()
-        mat.ambient.contents = NSColor.greenColor()
+        mat.diffuse.contents = NSColor.greenColor()
         floor.firstMaterial = mat
-        contents = SCNNode(geometry: floor)
+        let node = SCNNode(geometry: floor)
+        node.physicsBody = SCNPhysicsBody.staticBody()
+        return node
     }
 }

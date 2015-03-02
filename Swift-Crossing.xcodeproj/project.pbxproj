@@ -15,7 +15,7 @@
 		893198901AA3BD6800B398CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8931988E1AA3BD6800B398CC /* MainMenu.xib */; };
 		893198A71AA3C09400B398CC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A51AA3C09400B398CC /* Nimble.framework */; };
 		893198A81AA3C09400B398CC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A61AA3C09400B398CC /* Quick.framework */; };
-		893198AA1AA3C16500B398CC /* LandScapeSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198A91AA3C16500B398CC /* LandScapeSpecs.swift */; };
+		893198AA1AA3C16500B398CC /* LandScapeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198A91AA3C16500B398CC /* LandScapeSpec.swift */; };
 		893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198AB1AA3C1AD00B398CC /* LandScape.swift */; };
 		893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198AB1AA3C1AD00B398CC /* LandScape.swift */; };
 		893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198881AA3BD6800B398CC /* GameViewController.swift */; };
@@ -24,6 +24,9 @@
 		893198B21AA3D69D00B398CC /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A61AA3C09400B398CC /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		893198B41AA3DEFA00B398CC /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A51AA3C09400B398CC /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		893198B51AA3DEFA00B398CC /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A61AA3C09400B398CC /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		896CD03F1AA43048004CBBB1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD03E1AA43048004CBBB1 /* Character.swift */; };
+		896CD0401AA43054004CBBB1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD03E1AA43048004CBBB1 /* Character.swift */; };
+		896CD0421AA430E2004CBBB1 /* CharacterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +79,10 @@
 		8931989A1AA3BD6800B398CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		893198A51AA3C09400B398CC /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		893198A61AA3C09400B398CC /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
-		893198A91AA3C16500B398CC /* LandScapeSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandScapeSpecs.swift; sourceTree = "<group>"; };
+		893198A91AA3C16500B398CC /* LandScapeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandScapeSpec.swift; sourceTree = "<group>"; };
 		893198AB1AA3C1AD00B398CC /* LandScape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandScape.swift; sourceTree = "<group>"; };
+		896CD03E1AA43048004CBBB1 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +130,7 @@
 				893198861AA3BD6800B398CC /* GameView.swift */,
 				893198881AA3BD6800B398CC /* GameViewController.swift */,
 				893198AB1AA3C1AD00B398CC /* LandScape.swift */,
+				896CD03E1AA43048004CBBB1 /* Character.swift */,
 				8931988A1AA3BD6800B398CC /* art.scnassets */,
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
 				8931988E1AA3BD6800B398CC /* MainMenu.xib */,
@@ -144,7 +150,8 @@
 		893198981AA3BD6800B398CC /* Swift-CrossingTests */ = {
 			isa = PBXGroup;
 			children = (
-				893198A91AA3C16500B398CC /* LandScapeSpecs.swift */,
+				893198A91AA3C16500B398CC /* LandScapeSpec.swift */,
+				896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */,
 				893198A51AA3C09400B398CC /* Nimble.framework */,
 				893198A61AA3C09400B398CC /* Quick.framework */,
 				893198991AA3BD6800B398CC /* Supporting Files */,
@@ -264,6 +271,7 @@
 			files = (
 				893198871AA3BD6800B398CC /* GameView.swift in Sources */,
 				893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */,
+				896CD03F1AA43048004CBBB1 /* Character.swift in Sources */,
 				893198891AA3BD6800B398CC /* GameViewController.swift in Sources */,
 				893198851AA3BD6800B398CC /* AppDelegate.swift in Sources */,
 			);
@@ -275,7 +283,9 @@
 			files = (
 				893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */,
 				893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */,
-				893198AA1AA3C16500B398CC /* LandScapeSpecs.swift in Sources */,
+				896CD0401AA43054004CBBB1 /* Character.swift in Sources */,
+				893198AA1AA3C16500B398CC /* LandScapeSpec.swift in Sources */,
+				896CD0421AA430E2004CBBB1 /* CharacterSpec.swift in Sources */,
 				893198AF1AA3C2C800B398CC /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,7 @@ import Quick
 import Nimble
 import SceneKit
 
-class LandScapeSpecs: QuickSpec {
+class LandScapeSpec: QuickSpec {
     override func spec() {
         var subject : LandScape! = nil
 
@@ -17,9 +17,16 @@ class LandScapeSpecs: QuickSpec {
                 if let geom = node.geometry {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
-                        let color = mat.ambient.contents as NSColor
+                        let color = mat.diffuse.contents as NSColor
                         expect(color).to(equal(NSColor.greenColor()))
                     }
+                }
+            }
+
+            it("should attach a static physics body") {
+                expect(subject.contents.physicsBody).toNot(beNil())
+                if let body = subject.contents.physicsBody {
+                    expect(body.type).to(equal(SCNPhysicsBodyType.Static))
                 }
             }
         }
