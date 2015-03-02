@@ -10,7 +10,6 @@
 		893198851AA3BD6800B398CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198841AA3BD6800B398CC /* AppDelegate.swift */; };
 		893198871AA3BD6800B398CC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198861AA3BD6800B398CC /* GameView.swift */; };
 		893198891AA3BD6800B398CC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198881AA3BD6800B398CC /* GameViewController.swift */; };
-		8931988B1AA3BD6800B398CC /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8931988A1AA3BD6800B398CC /* art.scnassets */; };
 		8931988D1AA3BD6800B398CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8931988C1AA3BD6800B398CC /* Images.xcassets */; };
 		893198901AA3BD6800B398CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8931988E1AA3BD6800B398CC /* MainMenu.xib */; };
 		893198A71AA3C09400B398CC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A51AA3C09400B398CC /* Nimble.framework */; };
@@ -72,7 +71,6 @@
 		893198841AA3BD6800B398CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		893198861AA3BD6800B398CC /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		893198881AA3BD6800B398CC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		8931988A1AA3BD6800B398CC /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		8931988C1AA3BD6800B398CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8931988F1AA3BD6800B398CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		893198951AA3BD6800B398CC /* Swift-CrossingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-CrossingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +129,6 @@
 				893198881AA3BD6800B398CC /* GameViewController.swift */,
 				893198AB1AA3C1AD00B398CC /* LandScape.swift */,
 				896CD03E1AA43048004CBBB1 /* Character.swift */,
-				8931988A1AA3BD6800B398CC /* art.scnassets */,
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
 				8931988E1AA3BD6800B398CC /* MainMenu.xib */,
 				893198821AA3BD6800B398CC /* Supporting Files */,
@@ -249,7 +246,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8931988B1AA3BD6800B398CC /* art.scnassets in Resources */,
 				8931988D1AA3BD6800B398CC /* Images.xcassets in Resources */,
 				893198901AA3BD6800B398CC /* MainMenu.xib in Resources */,
 			);
