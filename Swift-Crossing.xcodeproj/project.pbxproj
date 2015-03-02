@@ -13,9 +13,17 @@
 		8931988B1AA3BD6800B398CC /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8931988A1AA3BD6800B398CC /* art.scnassets */; };
 		8931988D1AA3BD6800B398CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8931988C1AA3BD6800B398CC /* Images.xcassets */; };
 		893198901AA3BD6800B398CC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8931988E1AA3BD6800B398CC /* MainMenu.xib */; };
-		8931989C1AA3BD6800B398CC /* Swift_CrossingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8931989B1AA3BD6800B398CC /* Swift_CrossingTests.swift */; };
 		893198A71AA3C09400B398CC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A51AA3C09400B398CC /* Nimble.framework */; };
 		893198A81AA3C09400B398CC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A61AA3C09400B398CC /* Quick.framework */; };
+		893198AA1AA3C16500B398CC /* LandScapeSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198A91AA3C16500B398CC /* LandScapeSpecs.swift */; };
+		893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198AB1AA3C1AD00B398CC /* LandScape.swift */; };
+		893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198AB1AA3C1AD00B398CC /* LandScape.swift */; };
+		893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198881AA3BD6800B398CC /* GameViewController.swift */; };
+		893198AF1AA3C2C800B398CC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893198861AA3BD6800B398CC /* GameView.swift */; };
+		893198B11AA3D69D00B398CC /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A51AA3C09400B398CC /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		893198B21AA3D69D00B398CC /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A61AA3C09400B398CC /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		893198B41AA3DEFA00B398CC /* Nimble.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A51AA3C09400B398CC /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		893198B51AA3DEFA00B398CC /* Quick.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 893198A61AA3C09400B398CC /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +36,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		893198B01AA3D68200B398CC /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				893198B11AA3D69D00B398CC /* Nimble.framework in Copy Frameworks */,
+				893198B21AA3D69D00B398CC /* Quick.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		893198B31AA3DEEC00B398CC /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				893198B41AA3DEFA00B398CC /* Nimble.framework in Copy Frameworks */,
+				893198B51AA3DEFA00B398CC /* Quick.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8931987F1AA3BD6800B398CC /* Swift-Crossing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-Crossing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		893198831AA3BD6800B398CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,9 +74,10 @@
 		8931988F1AA3BD6800B398CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		893198951AA3BD6800B398CC /* Swift-CrossingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swift-CrossingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8931989A1AA3BD6800B398CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8931989B1AA3BD6800B398CC /* Swift_CrossingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_CrossingTests.swift; sourceTree = "<group>"; };
 		893198A51AA3C09400B398CC /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		893198A61AA3C09400B398CC /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = SOURCE_ROOT; };
+		893198A91AA3C16500B398CC /* LandScapeSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandScapeSpecs.swift; sourceTree = "<group>"; };
+		893198AB1AA3C1AD00B398CC /* LandScape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandScape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +124,7 @@
 				893198841AA3BD6800B398CC /* AppDelegate.swift */,
 				893198861AA3BD6800B398CC /* GameView.swift */,
 				893198881AA3BD6800B398CC /* GameViewController.swift */,
+				893198AB1AA3C1AD00B398CC /* LandScape.swift */,
 				8931988A1AA3BD6800B398CC /* art.scnassets */,
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
 				8931988E1AA3BD6800B398CC /* MainMenu.xib */,
@@ -107,7 +144,7 @@
 		893198981AA3BD6800B398CC /* Swift-CrossingTests */ = {
 			isa = PBXGroup;
 			children = (
-				8931989B1AA3BD6800B398CC /* Swift_CrossingTests.swift */,
+				893198A91AA3C16500B398CC /* LandScapeSpecs.swift */,
 				893198A51AA3C09400B398CC /* Nimble.framework */,
 				893198A61AA3C09400B398CC /* Quick.framework */,
 				893198991AA3BD6800B398CC /* Supporting Files */,
@@ -150,6 +187,8 @@
 				893198911AA3BD6800B398CC /* Sources */,
 				893198921AA3BD6800B398CC /* Frameworks */,
 				893198931AA3BD6800B398CC /* Resources */,
+				893198B01AA3D68200B398CC /* Copy Frameworks */,
+				893198B31AA3DEEC00B398CC /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				893198871AA3BD6800B398CC /* GameView.swift in Sources */,
+				893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */,
 				893198891AA3BD6800B398CC /* GameViewController.swift in Sources */,
 				893198851AA3BD6800B398CC /* AppDelegate.swift in Sources */,
 			);
@@ -233,7 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8931989C1AA3BD6800B398CC /* Swift_CrossingTests.swift in Sources */,
+				893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */,
+				893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */,
+				893198AA1AA3C16500B398CC /* LandScapeSpecs.swift in Sources */,
+				893198AF1AA3C2C800B398CC /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,38 +404,52 @@
 		893198A31AA3BD6800B398CC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.framework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/Mac/**",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "Swift-CrossingTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-Crossing.app/Contents/MacOS/Swift-Crossing";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac/**";
 			};
 			name = Debug;
 		};
 		893198A41AA3BD6800B398CC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.framework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/Mac/**",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "Swift-CrossingTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift-Crossing.app/Contents/MacOS/Swift-Crossing";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac/**";
 			};
 			name = Release;
 		};
@@ -415,6 +472,7 @@
 				893198A11AA3BD6800B398CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		893198A21AA3BD6800B398CC /* Build configuration list for PBXNativeTarget "Swift-CrossingTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +481,7 @@
 				893198A41AA3BD6800B398CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
