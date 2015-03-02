@@ -51,7 +51,7 @@ class CharacterSpec: QuickSpec {
                         subject.keyDown(126)
                     }
                     it("should not give the character a velocity of 2") {
-                        expectVector(SCNVector3Make(0, 0, 1))
+                        expectVector(SCNVector3Make(0, 0, -1))
                     }
                 }
 
