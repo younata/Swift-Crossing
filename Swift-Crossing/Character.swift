@@ -66,8 +66,14 @@ class Character {
         let box = SCNBox(width: 1, height: 2, length: 1, chamferRadius: 0.05)
 
         let mat = SCNMaterial()
-        mat.diffuse.contents = NSColor.whiteColor()
-        box.firstMaterial = mat
+        mat.diffuse.contents = NSColor.brownColor()
+        var materials = [mat]
+        for i in 0..<5 {
+            let mat = SCNMaterial()
+            mat.diffuse.contents = NSColor.whiteColor()
+            materials.append(mat)
+        }
+        box.materials = materials
         let node = SCNNode(geometry: box)
         node.physicsBody = SCNPhysicsBody.dynamicBody()
         return node

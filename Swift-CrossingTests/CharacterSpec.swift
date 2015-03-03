@@ -11,13 +11,17 @@ class CharacterSpec: QuickSpec {
         }
 
         describe("Creating a new characeter") {
-            it("should default to a white box") {
+            it("should default to a white box with a brown front") {
                 let node = subject.contents
                 expect(node.geometry).to(beAnInstanceOf(SCNBox.self))
                 if let geom = node.geometry {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
                         let color = mat.diffuse.contents as NSColor
+                        expect(color).to(equal(NSColor.brownColor()))
+                    }
+                    for var i = 1; i < (geom.materials?.count ?? 0); i++ {
+                        let color = geom.materials![i].diffuse.contents as NSColor
                         expect(color).to(equal(NSColor.whiteColor()))
                     }
                 }
@@ -51,7 +55,7 @@ class CharacterSpec: QuickSpec {
                         subject.keyDown(126)
                     }
                     it("should not give the character a velocity of 2") {
-                        expectVector(SCNVector3Make(0, 0, 1))
+                        expectVector(SCNVector3Make(0, 0, -1))
                     }
                 }
 

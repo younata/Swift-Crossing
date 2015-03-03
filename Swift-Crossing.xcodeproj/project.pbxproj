@@ -26,6 +26,7 @@
 		896CD03F1AA43048004CBBB1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD03E1AA43048004CBBB1 /* Character.swift */; };
 		896CD0401AA43054004CBBB1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD03E1AA43048004CBBB1 /* Character.swift */; };
 		896CD0421AA430E2004CBBB1 /* CharacterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */; };
+		896CD0471AA56567004CBBB1 /* GameViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD0461AA56567004CBBB1 /* GameViewSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		893198AB1AA3C1AD00B398CC /* LandScape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandScape.swift; sourceTree = "<group>"; };
 		896CD03E1AA43048004CBBB1 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterSpec.swift; sourceTree = "<group>"; };
+		896CD0461AA56567004CBBB1 /* GameViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				893198A91AA3C16500B398CC /* LandScapeSpec.swift */,
 				896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */,
+				896CD0461AA56567004CBBB1 /* GameViewSpec.swift */,
 				893198A51AA3C09400B398CC /* Nimble.framework */,
 				893198A61AA3C09400B398CC /* Quick.framework */,
 				893198991AA3BD6800B398CC /* Supporting Files */,
@@ -282,6 +285,7 @@
 				896CD0401AA43054004CBBB1 /* Character.swift in Sources */,
 				893198AA1AA3C16500B398CC /* LandScapeSpec.swift in Sources */,
 				896CD0421AA430E2004CBBB1 /* CharacterSpec.swift in Sources */,
+				896CD0471AA56567004CBBB1 /* GameViewSpec.swift in Sources */,
 				893198AF1AA3C2C800B398CC /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
