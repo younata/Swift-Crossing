@@ -17,7 +17,7 @@
                 <menuItem title="Swift-Crossing" id="56" userLabel="Swift-Crossing">
                     <menu key="submenu" title="Swift-Crossing" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About SceneKit Mac Template" id="58">
+                            <menuItem title="About Swift-Crossing" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
@@ -36,7 +36,7 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide SceneKit Mac Template" keyEquivalent="h" id="134">
+                            <menuItem title="Hide Swift-Crossing" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
@@ -55,7 +55,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quit SceneKit Mac Template" keyEquivalent="q" id="136">
+                            <menuItem title="Quit Swift-Crossing" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-3" id="449"/>
                                 </connections>
@@ -637,7 +637,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="491">
                         <items>
-                            <menuItem title="SceneKit Mac Template Help" keyEquivalent="?" id="492">
+                            <menuItem title="Swift-Crossing Help" keyEquivalent="?" id="492">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="493"/>
                                 </connections>

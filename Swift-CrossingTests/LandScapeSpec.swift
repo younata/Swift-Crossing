@@ -18,7 +18,7 @@ class LandScapeSpec: QuickSpec {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
                         let color = mat.diffuse.contents as NSColor
-                        expect(color).to(equal(NSColor.greenColor()))
+                        expect(color).to(equal(NSColor.grassGreen()))
                     }
                 }
             }

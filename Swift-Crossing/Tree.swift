@@ -21,7 +21,7 @@ class Tree {
 
         let leaves = SCNSphere(radius: 1)
         let green = SCNMaterial()
-        green.diffuse.contents = NSColor.greenColor()
+        green.diffuse.contents = NSColor.treeGreen()
         green.transparent.contents = NSColor(calibratedWhite: 0.9, alpha: 1.0)
         leaves.firstMaterial = green
 

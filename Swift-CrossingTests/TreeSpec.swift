@@ -31,7 +31,7 @@ class TreeSpec: QuickSpec {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
                         let diffuse = mat.diffuse.contents as NSColor
-                        expect(diffuse).to(equal(NSColor.greenColor()))
+                        expect(diffuse).to(equal(NSColor.treeGreen()))
                         let transparent = mat.transparent.contents as NSColor
                         expect(transparent).to(equal(NSColor(calibratedWhite: 0.9, alpha: 1.0)))
                     }

@@ -21,7 +21,7 @@ class LandScape {
         floor.reflectivity = 0
 
         let mat = SCNMaterial()
-        mat.diffuse.contents = NSColor.greenColor()
+        mat.diffuse.contents = NSColor.grassGreen()
         floor.firstMaterial = mat
         let node = SCNNode(geometry: floor)
         node.physicsBody = SCNPhysicsBody.staticBody()

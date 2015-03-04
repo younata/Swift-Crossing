@@ -30,6 +30,8 @@
 		896CD0491AA6D689004CBBB1 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD0481AA6D689004CBBB1 /* Tree.swift */; };
 		896CD04A1AA6D689004CBBB1 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD0481AA6D689004CBBB1 /* Tree.swift */; };
 		896CD04C1AA6D6AC004CBBB1 /* TreeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD04B1AA6D6AC004CBBB1 /* TreeSpec.swift */; };
+		896CD04F1AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */; };
+		896CD0501AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,7 @@
 		896CD0461AA56567004CBBB1 /* GameViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewSpec.swift; sourceTree = "<group>"; };
 		896CD0481AA6D689004CBBB1 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		896CD04B1AA6D6AC004CBBB1 /* TreeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeSpec.swift; sourceTree = "<group>"; };
+		896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Swift-Crossing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,7 @@
 				893198AB1AA3C1AD00B398CC /* LandScape.swift */,
 				896CD03E1AA43048004CBBB1 /* Character.swift */,
 				896CD0481AA6D689004CBBB1 /* Tree.swift */,
+				896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */,
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
 				8931988E1AA3BD6800B398CC /* MainMenu.xib */,
 				893198821AA3BD6800B398CC /* Supporting Files */,
@@ -287,6 +291,7 @@
 				893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */,
 				896CD03F1AA43048004CBBB1 /* Character.swift in Sources */,
 				896CD0491AA6D689004CBBB1 /* Tree.swift in Sources */,
+				896CD04F1AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */,
 				893198891AA3BD6800B398CC /* GameViewController.swift in Sources */,
 				893198851AA3BD6800B398CC /* AppDelegate.swift in Sources */,
 			);
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				896CD0501AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */,
 				893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */,
 				893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */,
 				896CD0401AA43054004CBBB1 /* Character.swift in Sources */,
