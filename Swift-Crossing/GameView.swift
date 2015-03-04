@@ -4,6 +4,7 @@ class GameView: SCNView {
 
     var character : Character? = nil
     var cameraNode : SCNNode? = nil
+    var trees : [Tree] = []
 
     func setup() {
         let scene = SCNScene()
@@ -27,6 +28,11 @@ class GameView: SCNView {
 
         let character = Character()
         scene.rootNode.addChildNode(character.contents)
+
+        let tree = Tree()
+        landScape.contents.addChildNode(tree.contents)
+        tree.contents.position = SCNVector3Make(5, 0, 5)
+        trees = [tree]
 
 
         // create and add a camera to the scene

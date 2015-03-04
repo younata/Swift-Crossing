@@ -36,6 +36,10 @@ class GameViewSpec: QuickSpec {
                 expect(subject.character?.contents.parentNode).to(equal(subject.scene?.rootNode))
             }
 
+            it("should create a tree or 3") {
+                expect(subject.trees.count).toNot(equal(0))
+            }
+
             describe("the cameraNode") {
                 it("should exist and have a camera") {
                     expect(subject.cameraNode).toNot(beNil())
