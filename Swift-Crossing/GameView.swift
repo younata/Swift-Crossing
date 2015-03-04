@@ -48,52 +48,40 @@ class GameView: SCNView {
         showsStatistics = true
         backgroundColor = NSColor.blackColor()
     }
-    
-//    override func mouseDown(theEvent: NSEvent) {
-//        /* Called when a mouse click occurs */
-//        
-//        // check what nodes are clicked
-//        let p = self.convertPoint(theEvent.locationInWindow, fromView: nil)
-//        if let hitResults = self.hitTest(p, options: nil) {
-//            // check that we clicked on at least one object
-//            if hitResults.count > 0 {
-//                // retrieved the first clicked object
-//                let result: AnyObject = hitResults[0]
-//                
-//                // get its material
-//                let material = result.node!.geometry!.firstMaterial!
-//                
-//                // highlight it
-//                SCNTransaction.begin()
-//                SCNTransaction.setAnimationDuration(0.5)
-//                
-//                // on completion - unhighlight
-//                SCNTransaction.setCompletionBlock() {
-//                    SCNTransaction.begin()
-//                    SCNTransaction.setAnimationDuration(0.5)
-//                    
-//                    material.emission.contents = NSColor.blackColor()
-//                    
-//                    SCNTransaction.commit()
-//                }
-//                
-//                material.emission.contents = NSColor.redColor()
-//                
-//                SCNTransaction.commit()
-//            }
-//        }
-//        
-//        super.mouseDown(theEvent)
-//    }
 
     override func keyDown(theEvent: NSEvent) {
         super.keyDown(theEvent)
-        character?.keyDown(theEvent.keyCode)
+        let keyCode = theEvent.keyCode
+
+        switch (keyCode) {
+        case 126: // Up arrow
+            character?.moveCharacter(0, -1)
+        case 125: // Down arrow
+            character?.moveCharacter(0, 1)
+        case 124: // Right arrow
+            character?.moveCharacter(1, 0)
+        case 123: // Left arrow
+            character?.moveCharacter(-1, 0)
+        default:
+            break
+        }
     }
 
     override func keyUp(theEvent: NSEvent) {
         super.keyUp(theEvent)
-        character?.keyUp(theEvent.keyCode)
-    }
+        let keyCode = theEvent.keyCode
 
+        switch (keyCode) {
+        case 126: // Up arrow
+            character?.moveCharacter(0, 1)
+        case 125: // Down arrow
+            character?.moveCharacter(0, -1)
+        case 124: // Right arrow
+            character?.moveCharacter(-1, 0)
+        case 123: // Left arrow
+            character?.moveCharacter(1, 0)
+        default:
+            break
+        }
+    }
 }
