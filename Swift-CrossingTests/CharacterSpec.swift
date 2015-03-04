@@ -96,8 +96,12 @@ class CharacterSpec: QuickSpec {
             }
 
             context("When running") {
+                beforeEach {
+                    subject.toggleRunning()
+                }
+
                 it("should double the speeds inputted") {
-                    subject.moveCharacter(1, 0, running: true)
+                    subject.moveCharacter(1, 0)
                     expectVector(SCNVector3Make(2, 0, 0));
                 }
             }

@@ -5,12 +5,15 @@ import SceneKit
 class FakeCharacter : Character {
     var x: CGFloat? = nil
     var z: CGFloat? = nil
-    var running: Bool? = nil
+    var running: Bool = false
 
-    override func moveCharacter(x: CGFloat, _ z: CGFloat, running: Bool = false) {
+    override func moveCharacter(x: CGFloat, _ z: CGFloat) {
         self.x = x
         self.z = z
-        self.running = running
+    }
+
+    override func toggleRunning() {
+        running = !running
     }
 }
 
@@ -74,8 +77,8 @@ class GameViewSpec: QuickSpec {
                     keyCode: keyCode)!
             }
 
-            var charMove : (CGFloat, CGFloat, Bool) -> (Void) = {(x, z, running) in
-                let isTrue = char.x == x && char.z == z && char.running == running
+            var charMove : (CGFloat, CGFloat) -> (Void) = {(x, z) in
+                let isTrue = char.x == x && char.z == z
                 expect(isTrue).to(beTruthy())
             }
 
@@ -88,25 +91,25 @@ class GameViewSpec: QuickSpec {
                 it("the up arrow should tell the character to go up") {
                     subject.keyDown(eventFactory(126, .KeyDown))
 
-                    charMove(0, -1, false)
+                    charMove(0, -1)
                 }
 
                 it("the down arrow should tell the character to go down") {
                     subject.keyDown(eventFactory(125, .KeyDown))
 
-                    charMove(0, 1, false)
+                    charMove(0, 1)
                 }
 
                 it("the left arrow should tell the character to go left") {
                     subject.keyDown(eventFactory(123, .KeyDown))
 
-                    charMove(-1, 0, false)
+                    charMove(-1, 0)
                 }
 
                 it("the right arrow should tell the character to go right") {
                     subject.keyDown(eventFactory(124, .KeyDown))
 
-                    charMove(1, 0, false)
+                    charMove(1, 0)
                 }
             }
 
@@ -114,25 +117,25 @@ class GameViewSpec: QuickSpec {
                 it("the up arrow should tell the character to stop going up") {
                     subject.keyUp(eventFactory(126, .KeyUp))
 
-                    charMove(0, 1, false)
+                    charMove(0, 1)
                 }
 
                 it("the down arrow should tell the character to stop going down") {
                     subject.keyUp(eventFactory(125, .KeyUp))
 
-                    charMove(0, -1, false)
+                    charMove(0, -1)
                 }
 
                 it("the left arrow should tell the character to stop going left") {
                     subject.keyUp(eventFactory(123, .KeyUp))
 
-                    charMove(1, 0, false)
+                    charMove(1, 0)
                 }
 
                 it("the right arrow should tell the character to stop going right") {
                     subject.keyUp(eventFactory(124, .KeyUp))
                     
-                    charMove(-1, 0, false)
+                    charMove(-1, 0)
                 }
             }
         }

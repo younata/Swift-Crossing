@@ -15,14 +15,24 @@ class Character {
 
     init() {}
 
-    func moveCharacter(x: CGFloat, _ z: CGFloat, running: Bool = false) {
+    private var movementVector: (x: CGFloat, z: CGFloat, running: Bool) = (0,0,false)
+
+    func moveCharacter(x: CGFloat, _ z: CGFloat) {
         if let body = self.contents.physicsBody {
-            let vel = body.velocity
-            let magnitude = hypot(vel.x + x, vel.z + z)
-            let nx = ((vel.x + x) / magnitude) * (running ? 2 : 1)
-            let nz = ((vel.z + z) / magnitude) * (running ? 2 : 1)
+            movementVector.x += x
+            movementVector.z += z
+
+            let magnitude = hypot(movementVector.x, movementVector.z)
+
+            let nx = (movementVector.x / magnitude) * (movementVector.running ? 2 : 1)
+            let nz = (movementVector.z / magnitude) * (movementVector.running ? 2 : 1)
+
             self.contents.physicsBody?.velocity = SCNVector3Make(nx, 0, nz)
         }
+    }
+
+    func toggleRunning() {
+        movementVector.running = !movementVector.running
     }
 
     // MARK - Private Methods
