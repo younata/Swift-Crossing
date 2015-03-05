@@ -8,17 +8,20 @@
 
 import SceneKit
 
-class Character {
-    lazy var contents : SCNNode = {
-        return self.generateCharacter()
-    }()
+class Character : SCNNode {
+    override init() {
+        super.init()
+        generateCharacter()
+    }
 
-    init() {}
+    required init(coder: NSCoder) {
+        fatalError("NSCoding not supported")
+    }
 
     private var movementVector: (x: CGFloat, z: CGFloat, running: Bool) = (0,0,false)
 
     func moveCharacter(x: CGFloat, _ z: CGFloat) {
-        if let body = self.contents.physicsBody {
+        if let body = physicsBody {
             movementVector.x += x
             movementVector.z += z
 
@@ -27,7 +30,7 @@ class Character {
             let nx = (movementVector.x / magnitude) * (movementVector.running ? 2 : 1)
             let nz = (movementVector.z / magnitude) * (movementVector.running ? 2 : 1)
 
-            self.contents.physicsBody?.velocity = SCNVector3Make(nx, 0, nz)
+            physicsBody?.velocity = SCNVector3Make(nx, 0, nz)
         }
     }
 
@@ -37,7 +40,7 @@ class Character {
 
     // MARK - Private Methods
 
-    private func generateCharacter() -> SCNNode {
+    private func generateCharacter() {
 //        let box = SCNBox(width: 0.45, height: 1.67, length: 0.24, chamferRadius: 0.0)
         let box = SCNBox(width: 0.5, height: 1, length: 0.5, chamferRadius: 0.0)
 
@@ -51,8 +54,8 @@ class Character {
             materials.append(mat)
         }
         box.materials = materials
-        let node = SCNNode(geometry: box)
-        node.physicsBody = SCNPhysicsBody.dynamicBody()
-        return node
+
+        geometry = box
+        physicsBody = SCNPhysicsBody.dynamicBody()
     }
 }

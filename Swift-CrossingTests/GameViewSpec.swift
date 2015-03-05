@@ -33,7 +33,7 @@ class GameViewSpec: QuickSpec {
 
             it("should create a character") {
                 expect(subject.character).toNot(beNil())
-                expect(subject.character?.contents.parentNode).to(equal(subject.scene?.rootNode))
+                expect(subject.character?.parentNode).to(equal(subject.scene?.rootNode))
             }
 
             it("should create a tree or 3") {
@@ -45,7 +45,7 @@ class GameViewSpec: QuickSpec {
                     expect(subject.cameraNode).toNot(beNil())
 
                     expect(subject.cameraNode?.parentNode).toNot(beNil())
-                    expect(subject.cameraNode?.parentNode).to(equal(subject.character?.contents))
+                    expect(subject.cameraNode?.parentNode).to(equal(subject.character?))
 
                     expect(subject.cameraNode?.camera).toNot(beNil())
                 }
@@ -56,7 +56,7 @@ class GameViewSpec: QuickSpec {
                         expect(constraints.count).to(equal(1))
                         if let lookAt = constraints.first as? SCNLookAtConstraint {
                             expect(lookAt.target).toNot(beNil())
-                            expect(lookAt.target).to(equal(subject.character?.contents))
+                            expect(lookAt.target).to(equal(subject.character?))
                             expect(lookAt.gimbalLockEnabled).to(beFalsy())
                         }
                     }
@@ -87,7 +87,7 @@ class GameViewSpec: QuickSpec {
             }
 
             beforeEach {
-                char = FakeCharacter()
+                char = FakeCharacter() as FakeCharacter
                 subject.character = char
             }
 

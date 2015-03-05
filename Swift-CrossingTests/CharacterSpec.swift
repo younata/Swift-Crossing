@@ -7,14 +7,13 @@ class CharacterSpec: QuickSpec {
         var subject : Character! = nil
 
         beforeEach {
-            subject = Character()
+            subject = Character() as Character
         }
 
         describe("Creating a new characeter") {
             it("should default to a white box with a brown front") {
-                let node = subject.contents
-                expect(node.geometry).to(beAnInstanceOf(SCNBox.self))
-                if let geom = node.geometry {
+                expect(subject.geometry).to(beAnInstanceOf(SCNBox.self))
+                if let geom = subject.geometry {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
                         let color = mat.diffuse.contents as NSColor
@@ -28,8 +27,8 @@ class CharacterSpec: QuickSpec {
             }
 
             it("should attach a dynamic physics body") {
-                expect(subject.contents.physicsBody).toNot(beNil())
-                if let body = subject.contents.physicsBody {
+                expect(subject.physicsBody).toNot(beNil())
+                if let body = subject.physicsBody {
                     expect(body.type).to(equal(SCNPhysicsBodyType.Dynamic))
                 }
             }
@@ -37,8 +36,8 @@ class CharacterSpec: QuickSpec {
 
         describe("Moving a character") {
             var expectVector : (SCNVector3) -> (Void) = {(vector) in
-                expect(subject.contents.physicsBody?.velocity).toNot(beNil())
-                if let vel = subject.contents.physicsBody?.velocity {
+                expect(subject.physicsBody?.velocity).toNot(beNil())
+                if let vel = subject.physicsBody?.velocity {
                     let isTrue = (fabs(vel.x - vector.x) < 1e-12) && (fabs(vel.y - vector.y) < 1e-12) && (fabs(vel.z - vector.z) < 1e-12)
                     expect(isTrue).to(beTruthy())
                 }
@@ -48,7 +47,7 @@ class CharacterSpec: QuickSpec {
             }
 
             var expectRotation : (SCNVector3) -> (Void) = {(rotation) in
-                expect(SCNVector3EqualToVector3(subject.contents.eulerAngles, rotation)).to(beTruthy())
+                expect(SCNVector3EqualToVector3(subject.eulerAngles, rotation)).to(beTruthy())
             }
 
             it("should start not moving") {

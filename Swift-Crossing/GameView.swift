@@ -27,7 +27,7 @@ class GameView: SCNView {
         scene.rootNode.addChildNode(landScape.contents)
 
         let character = Character()
-        scene.rootNode.addChildNode(character.contents)
+        scene.rootNode.addChildNode(character)
 
         let tree = Tree()
         landScape.contents.addChildNode(tree.contents)
@@ -38,12 +38,12 @@ class GameView: SCNView {
         // create and add a camera to the scene
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        character.contents.addChildNode(cameraNode)
+        character.addChildNode(cameraNode)
 
         // place the camera
         cameraNode.position = SCNVector3(x: 0, y: 5, z: 10)
 
-        let lookAtConstraint = SCNLookAtConstraint(target: character.contents)
+        let lookAtConstraint = SCNLookAtConstraint(target: character)
 
         cameraNode.constraints = [lookAtConstraint]
 
