@@ -11,14 +11,18 @@ class LandScapeSpec: QuickSpec {
         }
 
         describe("Creating a new landscape") {
-            it("should create a floor with a green color") { // For now.
-                expect(subject.geometry).to(beAnInstanceOf(SCNFloor.self))
-                if let geom = subject.geometry {
+            it("should create a plane with a green color") { // For now.
+                expect(subject.geometry).to(beAnInstanceOf(SCNPlane.self))
+                if let geom = subject.geometry as? SCNPlane {
+                    expect(geom.width).to(equal(100))
+                    expect(geom.height).to(equal(100))
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
                         let color = mat.diffuse.contents as NSColor
                         expect(color).to(equal(NSColor.grassGreen()))
                     }
+                } else {
+                    expect(false).to(beTruthy())
                 }
             }
 
@@ -34,6 +38,8 @@ class LandScapeSpec: QuickSpec {
                         }
                         expect(g.width).to(equal(15))
                         expect(g.height).to(equal(100))
+                    } else {
+                        expect(false).to(beTruthy())
                     }
                     let angle = CGFloat(M_PI_2)
                     if i == 0 {

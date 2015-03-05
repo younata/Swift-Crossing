@@ -19,8 +19,7 @@ class LandScape : SCNNode {
     }
 
     private func generateLandScape() {
-        let floor = SCNFloor()
-        floor.reflectivity = 0
+        let floor = SCNPlane(width: 100, height: 100)
 
         let mat = SCNMaterial()
         mat.diffuse.contents = NSColor.grassGreen()
