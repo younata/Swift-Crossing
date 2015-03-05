@@ -7,14 +7,13 @@ class LandScapeSpec: QuickSpec {
         var subject : LandScape! = nil
 
         beforeEach {
-            subject = LandScape()
+            subject = LandScape() as LandScape
         }
 
         describe("Creating a new landscape") {
             it("should create a floor with a green color") { // For now.
-                let node = subject.contents
-                expect(node.geometry).to(beAnInstanceOf(SCNFloor.self))
-                if let geom = node.geometry {
+                expect(subject.geometry).to(beAnInstanceOf(SCNFloor.self))
+                if let geom = subject.geometry {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
                         let color = mat.diffuse.contents as NSColor
@@ -24,8 +23,8 @@ class LandScapeSpec: QuickSpec {
             }
 
             it("have 3 brown walls (cliffs) on the back and sides that each extend up 10 units") {
-                expect(subject.contents.childNodes.count).to(equal(3))
-                let childNodes = subject.contents.childNodes
+                expect(subject.childNodes.count).to(equal(3))
+                let childNodes = subject.childNodes
                 for (i,x) in enumerate(childNodes) {
                     expect(x.geometry).to(beAnInstanceOf(SCNPlane.self))
                     if let g = x.geometry as? SCNPlane {
@@ -51,8 +50,8 @@ class LandScapeSpec: QuickSpec {
             }
 
             it("should attach a static physics body") {
-                expect(subject.contents.physicsBody).toNot(beNil())
-                if let body = subject.contents.physicsBody {
+                expect(subject.physicsBody).toNot(beNil())
+                if let body = subject.physicsBody {
                     expect(body.type).to(equal(SCNPhysicsBodyType.Static))
                 }
             }

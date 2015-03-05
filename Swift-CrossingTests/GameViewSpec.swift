@@ -31,6 +31,12 @@ class GameViewSpec: QuickSpec {
                 expect(subject.scene).toNot(beNil())
             }
 
+            it("should setup a landscape") {
+                expect(subject.scene?.rootNode.childNodesPassingTest() {(node, stop) in
+                    return node is LandScape
+                }.count).toNot(equal(0))
+            }
+
             it("should create a character") {
                 expect(subject.character).toNot(beNil())
                 expect(subject.character?.parentNode).to(equal(subject.scene?.rootNode))

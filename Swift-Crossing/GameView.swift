@@ -24,13 +24,13 @@ class GameView: SCNView {
         scene.rootNode.addChildNode(ambientLightNode)
 
         let landScape = LandScape()
-        scene.rootNode.addChildNode(landScape.contents)
+        scene.rootNode.addChildNode(landScape)
 
         let character = Character()
         scene.rootNode.addChildNode(character)
 
         let tree = Tree()
-        landScape.contents.addChildNode(tree)
+        landScape.addChildNode(tree)
         tree.position = SCNVector3Make(5, 0, 0)
         trees = [tree]
 

@@ -8,23 +8,25 @@
 
 import SceneKit
 
-class LandScape {
-    lazy var contents : SCNNode = {
-        return self.generateLandScape()
-    }()
-
-    init() {
+class LandScape : SCNNode {
+    override init() {
+        super.init()
+        generateLandScape()
     }
 
-    private func generateLandScape() -> SCNNode {
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func generateLandScape() {
         let floor = SCNFloor()
         floor.reflectivity = 0
 
         let mat = SCNMaterial()
         mat.diffuse.contents = NSColor.grassGreen()
         floor.firstMaterial = mat
-        let node = SCNNode(geometry: floor)
-        node.physicsBody = SCNPhysicsBody.staticBody()
+        geometry = floor
+        physicsBody = SCNPhysicsBody.staticBody()
 
         for i in 0..<3 {
             let wall = SCNPlane(width: 15, height: 100)
@@ -45,9 +47,7 @@ class LandScape {
                 n.position = SCNVector3Make(50, 7.5, 0)
                 n.eulerAngles = SCNVector3Make(angle, 0, -angle)
             }
-            node.addChildNode(n)
+            addChildNode(n)
         }
-
-        return node
     }
 }
