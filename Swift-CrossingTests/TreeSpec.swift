@@ -7,12 +7,12 @@ class TreeSpec: QuickSpec {
         var tree: Tree! = nil
 
         beforeEach {
-            tree = Tree()
+            tree = Tree() as Tree
         }
 
         it("should have a brown cylinder as the base") {
-            expect(tree.contents.geometry).to(beAnInstanceOf(SCNCylinder.self))
-            if let geom = tree.contents.geometry as? SCNCylinder {
+            expect(tree.geometry).to(beAnInstanceOf(SCNCylinder.self))
+            if let geom = tree.geometry as? SCNCylinder {
                 expect(geom.firstMaterial).toNot(beNil())
                 if let mat = geom.firstMaterial {
                     let color = mat.diffuse.contents as NSColor
@@ -24,8 +24,8 @@ class TreeSpec: QuickSpec {
         }
 
         it("should have a green slightly transparent sphere") {
-            expect(tree.contents.childNodes.count).to(equal(1))
-            if let node = tree.contents.childNodes.first as? SCNNode {
+            expect(tree.childNodes.count).to(equal(1))
+            if let node = tree.childNodes.first as? SCNNode {
                 expect(node.geometry).to(beAnInstanceOf(SCNSphere.self))
                 if let geom = node.geometry as? SCNSphere {
                     expect(geom.firstMaterial).toNot(beNil())

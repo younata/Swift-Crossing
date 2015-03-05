@@ -38,6 +38,10 @@ class GameViewSpec: QuickSpec {
 
             it("should create a tree or 3") {
                 expect(subject.trees.count).toNot(equal(0))
+
+                expect(subject.scene?.rootNode.childNodesPassingTest() {(node, stop) in
+                    return node is Tree
+                }.count).toNot(equal(0))
             }
 
             describe("the cameraNode") {

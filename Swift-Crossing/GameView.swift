@@ -30,8 +30,8 @@ class GameView: SCNView {
         scene.rootNode.addChildNode(character)
 
         let tree = Tree()
-        landScape.contents.addChildNode(tree.contents)
-        tree.contents.position = SCNVector3Make(5, 0, 0)
+        landScape.contents.addChildNode(tree)
+        tree.position = SCNVector3Make(5, 0, 0)
         trees = [tree]
 
 
