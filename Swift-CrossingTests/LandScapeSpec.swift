@@ -12,23 +12,25 @@ class LandScapeSpec: QuickSpec {
 
         describe("Creating a new landscape") {
             it("should create a plane with a green color") { // For now.
-                expect(subject.geometry).to(beAnInstanceOf(SCNPlane.self))
-                if let geom = subject.geometry as? SCNPlane {
-                    expect(geom.width).to(equal(100))
-                    expect(geom.height).to(equal(100))
-                    expect(geom.firstMaterial).toNot(beNil())
-                    if let mat = geom.firstMaterial {
-                        let color = mat.diffuse.contents as NSColor
-                        expect(color).to(equal(NSColor.grassGreen()))
+                let n = subject.childNodeWithName("Floor", recursively: false)
+                expect(n).toNot(beNil())
+                if let floor = n {
+                    expect(floor.geometry).to(beAnInstanceOf(SCNPlane.self))
+                    if let geom = floor.geometry as? SCNPlane {
+                        expect(geom.width).to(equal(100))
+                        expect(geom.height).to(equal(100))
+                        expect(geom.firstMaterial).toNot(beNil())
+                        if let mat = geom.firstMaterial {
+                            let color = mat.diffuse.contents as NSColor
+                            expect(color).to(equal(NSColor.grassGreen()))
+                        }
                     }
-                } else {
-                    expect(false).to(beTruthy())
                 }
             }
 
             it("have 3 brown walls (cliffs) on the back and sides that each extend up 10 units") {
-                expect(subject.childNodes.count).to(equal(3))
-                let childNodes = subject.childNodes
+                let childNodes = subject.childNodesPassingTest {(node, _) in node.name != "Floor" }
+                expect(childNodes.count).to(equal(3))
                 for (i,x) in enumerate(childNodes) {
                     expect(x.geometry).to(beAnInstanceOf(SCNPlane.self))
                     if let g = x.geometry as? SCNPlane {

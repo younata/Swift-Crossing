@@ -52,6 +52,7 @@ class GameView: SCNView {
         self.cameraNode = cameraNode
 
         showsStatistics = true
+        allowsCameraControl = true
         backgroundColor = NSColor.blackColor()
     }
 

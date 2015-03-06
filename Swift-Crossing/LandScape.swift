@@ -24,8 +24,10 @@ class LandScape : SCNNode {
         let mat = SCNMaterial()
         mat.diffuse.contents = NSColor.grassGreen()
         floor.firstMaterial = mat
-        geometry = floor
-        physicsBody = SCNPhysicsBody.staticBody()
+        let floorNode = SCNNode(geometry: floor)
+        floorNode.name = "Floor"
+        floorNode.eulerAngles = SCNVector3Make(CGFloat(-M_PI_2), 0, 0)
+        addChildNode(floorNode)
 
         for i in 0..<3 {
             let wall = SCNPlane(width: 15, height: 100)
@@ -48,5 +50,6 @@ class LandScape : SCNNode {
             }
             addChildNode(n)
         }
+        physicsBody = SCNPhysicsBody.staticBody()
     }
 }
