@@ -15,7 +15,7 @@ class TreeSpec: QuickSpec {
             if let geom = tree.geometry as? SCNCylinder {
                 expect(geom.firstMaterial).toNot(beNil())
                 if let mat = geom.firstMaterial {
-                    let color = mat.diffuse.contents as NSColor
+                    let color = mat.diffuse.contents as! NSColor
                     expect(color).to(equal(NSColor.brownColor()))
                 }
                 expect(geom.height).to(equal(1.5))
@@ -30,9 +30,9 @@ class TreeSpec: QuickSpec {
                 if let geom = node.geometry as? SCNSphere {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
-                        let diffuse = mat.diffuse.contents as NSColor
+                        let diffuse = mat.diffuse.contents as! NSColor
                         expect(diffuse).to(equal(NSColor.treeGreen()))
-                        let transparent = mat.transparent.contents as NSColor
+                        let transparent = mat.transparent.contents as! NSColor
                         expect(transparent).to(equal(NSColor(calibratedWhite: 0.9, alpha: 1.0)))
                     }
                     expect(geom.radius).to(equal(1))

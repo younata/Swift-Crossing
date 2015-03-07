@@ -16,11 +16,11 @@ class CharacterSpec: QuickSpec {
                 if let geom = subject.geometry {
                     expect(geom.firstMaterial).toNot(beNil())
                     if let mat = geom.firstMaterial {
-                        let color = mat.diffuse.contents as NSColor
+                        let color = mat.diffuse.contents as! NSColor
                         expect(color).to(equal(NSColor.brownColor()))
                     }
                     for var i = 1; i < (geom.materials?.count ?? 0); i++ {
-                        let color = geom.materials![i].diffuse.contents as NSColor
+                        let color = geom.materials![i].diffuse.contents as! NSColor
                         expect(color).to(equal(NSColor.whiteColor()))
                     }
                 }

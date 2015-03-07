@@ -55,7 +55,7 @@ class GameViewSpec: QuickSpec {
                     expect(subject.cameraNode).toNot(beNil())
 
                     expect(subject.cameraNode?.parentNode).toNot(beNil())
-                    expect(subject.cameraNode?.parentNode).to(equal(subject.character?))
+                    expect(subject.cameraNode?.parentNode).to(equal(subject.character))
 
                     expect(subject.cameraNode?.camera).toNot(beNil())
                 }
@@ -66,7 +66,7 @@ class GameViewSpec: QuickSpec {
                         expect(constraints.count).to(equal(1))
                         if let lookAt = constraints.first as? SCNLookAtConstraint {
                             expect(lookAt.target).toNot(beNil())
-                            expect(lookAt.target).to(equal(subject.character?))
+                            expect(lookAt.target).to(equal(subject.character))
                             expect(lookAt.gimbalLockEnabled).to(beFalsy())
                         }
                     }
