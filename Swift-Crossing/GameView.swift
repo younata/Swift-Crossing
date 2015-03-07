@@ -1,6 +1,7 @@
 import SceneKit
+import GLKit
 
-class GameView: SCNView {
+class GameView: SCNView, SCNSceneRendererDelegate {
 
     var character : Character? = nil
     var cameraNode : SCNNode? = nil
@@ -27,19 +28,18 @@ class GameView: SCNView {
         scene.rootNode.addChildNode(landScape)
 
         let character = Character()
-        character.position = SCNVector3Make(0, 1, 0)
         scene.rootNode.addChildNode(character)
+        character.position = SCNVector3Make(0, 1, 0)
 
         let tree = Tree()
         landScape.addChildNode(tree)
         tree.position = SCNVector3Make(5, 0.75, 0)
         trees = [tree]
 
-
         // create and add a camera to the scene
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        character.addChildNode(cameraNode)
+        scene.rootNode.addChildNode(cameraNode)
 
         // place the camera
         cameraNode.position = SCNVector3(x: 0, y: 5, z: 10)
@@ -52,8 +52,10 @@ class GameView: SCNView {
         self.character = character
         self.cameraNode = cameraNode
 
+        delegate = self
         showsStatistics = true
         allowsCameraControl = true
+        jitteringEnabled = true
         backgroundColor = NSColor.blackColor()
     }
 
@@ -91,5 +93,37 @@ class GameView: SCNView {
         default:
             break
         }
+    }
+
+    // Mark: SCNSceneRendererDelegate
+
+    private var previousUpdateTime : NSTimeInterval? = nil
+
+    func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
+        let deltaTime = clamp(time - (previousUpdateTime ?? time), 0, 0.1)
+        previousUpdateTime = time
+
+        if let char = character {
+            let deltaPos = char.velocity * CGFloat(deltaTime)
+            if (deltaPos != 0.0) {
+                char.position += deltaPos
+            }
+        }
+    }
+
+    func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval) {
+
+    }
+
+    func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval) {
+
+    }
+
+    func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
+
+    }
+
+    func renderer(aRenderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
+
     }
 }

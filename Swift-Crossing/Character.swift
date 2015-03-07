@@ -18,6 +18,8 @@ class Character : SCNNode {
         fatalError("NSCoding not supported")
     }
 
+    var velocity : SCNVector3 = SCNVector3Zero
+
     private var movementVector: (x: CGFloat, z: CGFloat, running: Bool) = (0,0,false)
 
     func moveCharacter(x: CGFloat, _ z: CGFloat) {
@@ -25,12 +27,16 @@ class Character : SCNNode {
             movementVector.x += x
             movementVector.z += z
 
-            let magnitude = hypot(movementVector.x, movementVector.z)
+            movementVector.x = clamp(movementVector.x, -1, 1)
+            movementVector.z = clamp(movementVector.z, -1, 1)
+
+            var magnitude = hypot(movementVector.x, movementVector.z)
+            magnitude = magnitude == 0 ? 1 : magnitude
 
             let nx = (movementVector.x / magnitude) * (movementVector.running ? 2 : 1)
             let nz = (movementVector.z / magnitude) * (movementVector.running ? 2 : 1)
 
-            physicsBody?.velocity = SCNVector3Make(nx, 0, nz)
+            velocity = SCNVector3Make(nx, 0, nz)
         }
     }
 

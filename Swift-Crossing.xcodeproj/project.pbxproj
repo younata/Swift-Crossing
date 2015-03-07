@@ -32,6 +32,12 @@
 		896CD04C1AA6D6AC004CBBB1 /* TreeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD04B1AA6D6AC004CBBB1 /* TreeSpec.swift */; };
 		896CD04F1AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */; };
 		896CD0501AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */; };
+		89A86A021AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */; };
+		89A86A031AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */; };
+		89A86A051AAC00D700F898CD /* SCNVector3+SCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */; };
+		89E936721AAB699A003ED89C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936711AAB699A003ED89C /* Math.swift */; };
+		89E936731AAB699A003ED89C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936711AAB699A003ED89C /* Math.swift */; };
+		89E936751AAB6A0F003ED89C /* MathSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936741AAB6A0F003ED89C /* MathSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +97,10 @@
 		896CD0481AA6D689004CBBB1 /* Tree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
 		896CD04B1AA6D6AC004CBBB1 /* TreeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeSpec.swift; sourceTree = "<group>"; };
 		896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Swift-Crossing.swift"; sourceTree = "<group>"; };
+		89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+SC.swift"; sourceTree = "<group>"; };
+		89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+SCSpec.swift"; sourceTree = "<group>"; };
+		89E936711AAB699A003ED89C /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		89E936741AAB6A0F003ED89C /* MathSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,12 +145,14 @@
 			isa = PBXGroup;
 			children = (
 				893198841AA3BD6800B398CC /* AppDelegate.swift */,
-				893198861AA3BD6800B398CC /* GameView.swift */,
 				893198881AA3BD6800B398CC /* GameViewController.swift */,
+				893198861AA3BD6800B398CC /* GameView.swift */,
 				893198AB1AA3C1AD00B398CC /* LandScape.swift */,
 				896CD03E1AA43048004CBBB1 /* Character.swift */,
 				896CD0481AA6D689004CBBB1 /* Tree.swift */,
 				896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */,
+				89E936711AAB699A003ED89C /* Math.swift */,
+				89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */,
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
 				8931988E1AA3BD6800B398CC /* MainMenu.xib */,
 				893198821AA3BD6800B398CC /* Supporting Files */,
@@ -161,6 +173,8 @@
 			children = (
 				896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */,
 				896CD0461AA56567004CBBB1 /* GameViewSpec.swift */,
+				89E936741AAB6A0F003ED89C /* MathSpec.swift */,
+				89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */,
 				896CD04D1AA6D6B3004CBBB1 /* Landscape */,
 				893198A51AA3C09400B398CC /* Nimble.framework */,
 				893198A61AA3C09400B398CC /* Quick.framework */,
@@ -291,9 +305,11 @@
 				893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */,
 				896CD03F1AA43048004CBBB1 /* Character.swift in Sources */,
 				896CD0491AA6D689004CBBB1 /* Tree.swift in Sources */,
+				89E936721AAB699A003ED89C /* Math.swift in Sources */,
 				896CD04F1AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */,
 				893198891AA3BD6800B398CC /* GameViewController.swift in Sources */,
 				893198851AA3BD6800B398CC /* AppDelegate.swift in Sources */,
+				89A86A021AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,14 +318,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				896CD0501AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */,
+				89E936731AAB699A003ED89C /* Math.swift in Sources */,
 				893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */,
 				893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */,
 				896CD0401AA43054004CBBB1 /* Character.swift in Sources */,
 				893198AA1AA3C16500B398CC /* LandScapeSpec.swift in Sources */,
+				89E936751AAB6A0F003ED89C /* MathSpec.swift in Sources */,
 				896CD04C1AA6D6AC004CBBB1 /* TreeSpec.swift in Sources */,
+				89A86A031AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */,
 				896CD0421AA430E2004CBBB1 /* CharacterSpec.swift in Sources */,
 				896CD04A1AA6D689004CBBB1 /* Tree.swift in Sources */,
 				896CD0471AA56567004CBBB1 /* GameViewSpec.swift in Sources */,
+				89A86A051AAC00D700F898CD /* SCNVector3+SCSpec.swift in Sources */,
 				893198AF1AA3C2C800B398CC /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

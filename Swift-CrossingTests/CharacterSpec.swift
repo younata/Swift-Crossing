@@ -36,11 +36,9 @@ class CharacterSpec: QuickSpec {
 
         describe("Moving a character") {
             var expectVector : (SCNVector3) -> (Void) = {(vector) in
-                expect(subject.physicsBody?.velocity).toNot(beNil())
-                if let vel = subject.physicsBody?.velocity {
-                    let isTrue = (fabs(vel.x - vector.x) < 1e-12) && (fabs(vel.y - vector.y) < 1e-12) && (fabs(vel.z - vector.z) < 1e-12)
-                    expect(isTrue).to(beTruthy())
-                }
+                let vel = subject.velocity
+                let isTrue = (fabs(vel.x - vector.x) < 1e-12) && (fabs(vel.y - vector.y) < 1e-12) && (fabs(vel.z - vector.z) < 1e-12)
+                expect(isTrue).to(beTruthy())
             }
             var expectStationary : (Void) -> (Void) = {
                 expectVector(SCNVector3Zero)
@@ -102,6 +100,17 @@ class CharacterSpec: QuickSpec {
                 it("should double the speeds inputted") {
                     subject.moveCharacter(1, 0)
                     expectVector(SCNVector3Make(2, 0, 0));
+                }
+            }
+
+            describe("Moving back to zero") {
+                beforeEach {
+                    subject.moveCharacter(1, 0)
+                    subject.moveCharacter(-1, 0)
+                }
+
+                it("should set a velocity of (0, 0, 0)") {
+                    expect(subject.velocity).to(equal(SCNVector3Zero))
                 }
             }
         }
