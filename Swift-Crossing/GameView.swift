@@ -39,7 +39,7 @@ class GameView: SCNView, SCNSceneRendererDelegate {
         // create and add a camera to the scene
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
-        scene.rootNode.addChildNode(cameraNode)
+        character.addChildNode(cameraNode)
 
         // place the camera
         cameraNode.position = SCNVector3(x: 0, y: 5, z: 10)
@@ -52,7 +52,6 @@ class GameView: SCNView, SCNSceneRendererDelegate {
         self.character = character
         self.cameraNode = cameraNode
 
-        delegate = self
         showsStatistics = true
         allowsCameraControl = true
         jitteringEnabled = true
@@ -93,37 +92,5 @@ class GameView: SCNView, SCNSceneRendererDelegate {
         default:
             break
         }
-    }
-
-    // Mark: SCNSceneRendererDelegate
-
-    private var previousUpdateTime : NSTimeInterval? = nil
-
-    func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
-        let deltaTime = clamp(time - (previousUpdateTime ?? time), 0, 0.1)
-        previousUpdateTime = time
-
-        if let char = character {
-            let deltaPos = char.velocity * CGFloat(deltaTime)
-            if (deltaPos != 0.0) {
-                char.position += deltaPos
-            }
-        }
-    }
-
-    func renderer(renderer: SCNSceneRenderer, didApplyAnimationsAtTime time: NSTimeInterval) {
-
-    }
-
-    func renderer(renderer: SCNSceneRenderer, didSimulatePhysicsAtTime time: NSTimeInterval) {
-
-    }
-
-    func renderer(renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
-
-    }
-
-    func renderer(aRenderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: NSTimeInterval) {
-
     }
 }

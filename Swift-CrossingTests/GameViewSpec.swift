@@ -50,16 +50,12 @@ class GameViewSpec: QuickSpec {
                 }.count).toNot(equal(0))
             }
 
-            it("should set the delegate to itself") {
-                expect(subject.delegate === subject).to(beTruthy())
-            }
-
             describe("the cameraNode") {
                 it("should exist and have a camera") {
                     expect(subject.cameraNode).toNot(beNil())
 
                     expect(subject.cameraNode?.parentNode).toNot(beNil())
-                    expect(subject.cameraNode?.parentNode).to(equal(subject.scene?.rootNode))
+                    expect(subject.cameraNode?.parentNode).to(equal(subject.character))
 
                     expect(subject.cameraNode?.camera).toNot(beNil())
                 }
@@ -154,31 +150,6 @@ class GameViewSpec: QuickSpec {
                     subject.keyUp(eventFactory(124, .KeyUp))
                     
                     charMove(-1, 0)
-                }
-            }
-        }
-
-        describe("SCNSceneRendererDelegate") {
-            describe("renderer:updateAtTime:") {
-                beforeEach {
-                    subject.renderer(subject, updateAtTime: 0)
-                    subject.character?.position = SCNVector3Zero
-                    subject.character?.moveCharacter(1, 0)
-                }
-
-                it("should update the position of the character") {
-                    subject.renderer(subject, updateAtTime: 0.01)
-                    expect(subject.character?.position.x).to(beCloseTo(0.01))
-                }
-
-                context("during a lag spike") {
-                    beforeEach {
-                        subject.renderer(subject, updateAtTime: 1.0)
-                    }
-
-                    it("should cap the max delta time to 0.1 seconds") {
-                        expect(subject.character?.position.x).to(beCloseTo(0.1))
-                    }
                 }
             }
         }
