@@ -38,7 +38,7 @@ class TreeSpec: QuickSpec {
                     expect(geom.radius).to(equal(1))
                 }
 
-                expect(SCNVector3EqualToVector3(node.position, SCNVector3Make(0, 1.5, 0))).to(beTruthy())
+                expect(node.position).to(equal(SCNVector3Make(0, 1.5, 0)))
             }
         }
     }

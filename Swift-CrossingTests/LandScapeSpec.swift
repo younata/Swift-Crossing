@@ -15,6 +15,7 @@ class LandScapeSpec: QuickSpec {
                 let n = subject.childNodeWithName("Floor", recursively: false)
                 expect(n).toNot(beNil())
                 if let floor = n {
+                    expect(floor.eulerAngles).to(equal(SCNVector3Make(CGFloat(-M_PI_2), 0, 0)))
                     expect(floor.geometry).to(beAnInstanceOf(SCNPlane.self))
                     if let geom = floor.geometry as? SCNPlane {
                         expect(geom.width).to(equal(100))
@@ -45,14 +46,14 @@ class LandScapeSpec: QuickSpec {
                     }
                     let angle = CGFloat(M_PI_2)
                     if i == 0 {
-                        expect(SCNVector3EqualToVector3(x.position, SCNVector3Make(-50, 7.5, 0))).to(beTruthy())
-                        expect(SCNVector3EqualToVector3(x.eulerAngles, SCNVector3Make(-angle, 0, -angle))).to(beTruthy())
+                        expect(x.position).to(equal(SCNVector3Make(-50, 7.5, 0)))
+                        expect(x.eulerAngles).to(equal(SCNVector3Make(-angle, 0, -angle)))
                     } else if i == 1 {
-                        expect(SCNVector3EqualToVector3(x.position, SCNVector3Make(0, 7.5, -50))).to(beTruthy())
-                        expect(SCNVector3EqualToVector3(x.eulerAngles, SCNVector3Make(0, 0, angle))).to(beTruthy())
+                        expect(x.position).to(equal(SCNVector3Make(0, 7.5, -50)))
+                        expect(x.eulerAngles).to(equal(SCNVector3Make(0, 0, angle)))
                     } else if i == 2 {
-                        expect(SCNVector3EqualToVector3(x.position, SCNVector3Make(50, 7.5, 0))).to(beTruthy())
-                        expect(SCNVector3EqualToVector3(x.eulerAngles, SCNVector3Make(angle, 0, -angle))).to(beTruthy())
+                        expect(x.position).to(equal(SCNVector3Make(50, 7.5, 0)))
+                        expect(x.eulerAngles).to(equal(SCNVector3Make(angle, 0, -angle)))
                     }
                 }
             }

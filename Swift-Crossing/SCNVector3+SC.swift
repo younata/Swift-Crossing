@@ -15,7 +15,13 @@ extension SCNVector3 : Equatable, Printable {
 }
 
 public func ==(a: SCNVector3, b: SCNVector3) -> Bool {
-    return SCNVector3EqualToVector3(a, b)
+    if fabs(a.x - b.x) > 1e-6 {
+        return false
+    }
+    if fabs(a.y - b.y) > 1e-6 {
+        return false
+    }
+    return fabs(a.z - b.z) < 1e-6
 }
 
 public func ==(a: SCNVector3, b: CGFloat) -> Bool {

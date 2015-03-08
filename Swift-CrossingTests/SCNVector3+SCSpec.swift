@@ -12,9 +12,15 @@ class SCNVector3_SCSpec: QuickSpec {
             expect(b.description).to(equal("(-2.0, 3.0, 5.0)"))
         }
 
-        it("should == with two SCNVector3s") {
-            expect(a == b).to(beFalsy())
-            expect(a == SCNVector3Make(1, -1, 2)).to(beTruthy())
+        describe("equatable") {
+            it("should assert two SCNVector3s are equal") {
+                expect(a == b).to(beFalsy())
+                expect(a == SCNVector3Make(1, -1, 2)).to(beTruthy())
+            }
+
+            it("should allow some error in the floats") {
+                expect(a == SCNVector3Make(1 + 1e-7, -1 + 1e-7, 2 + 1e-7)).to(beTruthy())
+            }
         }
 
         it("should == with an SCNVector3 and a scalar") {
