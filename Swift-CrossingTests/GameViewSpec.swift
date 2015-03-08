@@ -34,7 +34,17 @@ class GameViewSpec: QuickSpec {
             it("should setup a landscape") {
                 expect(subject.scene?.rootNode.childNodesPassingTest() {(node, stop) in
                     return node is LandScape
-                }.count).toNot(equal(0))
+                }.count).to(equal(1))
+            }
+
+            it("should have an ocean") {
+                let nodes = subject.scene?.rootNode.childNodesPassingTest() {(node, stop) in
+                    return node is Ocean
+                }
+                expect(nodes?.count).to(equal(1))
+                if let ocean = nodes?.first as? Ocean {
+                    expect(ocean.position).to(equal(SCNVector3Make(0, 0, 55)))
+                }
             }
 
             it("should create a character") {

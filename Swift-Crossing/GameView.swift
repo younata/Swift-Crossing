@@ -27,6 +27,10 @@ class GameView: SCNView, SCNSceneRendererDelegate {
         let landScape = LandScape()
         scene.rootNode.addChildNode(landScape)
 
+        let ocean = Ocean()
+        scene.rootNode.addChildNode(ocean)
+        ocean.position = SCNVector3Make(0, 0, 55)
+
         let character = Character()
         scene.rootNode.addChildNode(character)
         character.position = SCNVector3Make(0, 1, 0)
