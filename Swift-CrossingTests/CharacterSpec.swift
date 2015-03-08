@@ -7,7 +7,7 @@ class CharacterSpec: QuickSpec {
         var subject : Character! = nil
 
         beforeEach {
-            subject = Character() as Character
+            subject = Character()
         }
 
         describe("Creating a new characeter") {

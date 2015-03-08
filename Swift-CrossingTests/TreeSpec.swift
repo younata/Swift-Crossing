@@ -7,7 +7,7 @@ class TreeSpec: QuickSpec {
         var tree: Tree! = nil
 
         beforeEach {
-            tree = Tree() as Tree
+            tree = Tree()
         }
 
         it("should have a brown cylinder as the base") {

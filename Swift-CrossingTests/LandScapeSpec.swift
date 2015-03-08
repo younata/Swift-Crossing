@@ -7,7 +7,7 @@ class LandScapeSpec: QuickSpec {
         var subject : LandScape! = nil
 
         beforeEach {
-            subject = LandScape() as LandScape
+            subject = LandScape()
         }
 
         describe("Creating a new landscape") {
