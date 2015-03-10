@@ -38,6 +38,12 @@
 		89B6F9561AAC0E9C00618B00 /* Ocean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9551AAC0E9C00618B00 /* Ocean.swift */; };
 		89B6F9571AAC0E9C00618B00 /* Ocean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9551AAC0E9C00618B00 /* Ocean.swift */; };
 		89B6F9591AAC0EB900618B00 /* OceanSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9581AAC0EB900618B00 /* OceanSpec.swift */; };
+		89B6F95B1AAEA1D500618B00 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F95A1AAEA1D400618B00 /* Tile.swift */; };
+		89B6F95C1AAEA1D500618B00 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F95A1AAEA1D400618B00 /* Tile.swift */; };
+		89B6F95E1AAEA20700618B00 /* TileSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F95D1AAEA20700618B00 /* TileSpec.swift */; };
+		89B6F9621AAEA2A100618B00 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9611AAEA2A100618B00 /* Vector2.swift */; };
+		89B6F9631AAEA2A100618B00 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9611AAEA2A100618B00 /* Vector2.swift */; };
+		89B6F9651AAEA2B800618B00 /* Vector2Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9641AAEA2B800618B00 /* Vector2Spec.swift */; };
 		89E936721AAB699A003ED89C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936711AAB699A003ED89C /* Math.swift */; };
 		89E936731AAB699A003ED89C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936711AAB699A003ED89C /* Math.swift */; };
 		89E936751AAB6A0F003ED89C /* MathSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936741AAB6A0F003ED89C /* MathSpec.swift */; };
@@ -104,6 +110,10 @@
 		89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+SCSpec.swift"; sourceTree = "<group>"; };
 		89B6F9551AAC0E9C00618B00 /* Ocean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocean.swift; sourceTree = "<group>"; };
 		89B6F9581AAC0EB900618B00 /* OceanSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OceanSpec.swift; sourceTree = "<group>"; };
+		89B6F95A1AAEA1D400618B00 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		89B6F95D1AAEA20700618B00 /* TileSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileSpec.swift; sourceTree = "<group>"; };
+		89B6F9611AAEA2A100618B00 /* Vector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
+		89B6F9641AAEA2B800618B00 /* Vector2Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2Spec.swift; sourceTree = "<group>"; };
 		89E936711AAB699A003ED89C /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		89E936741AAB6A0F003ED89C /* MathSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,8 +165,7 @@
 				896CD03E1AA43048004CBBB1 /* Character.swift */,
 				89B6F9541AAC0E7B00618B00 /* Landscape */,
 				896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */,
-				89E936711AAB699A003ED89C /* Math.swift */,
-				89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */,
+				89B6F95F1AAEA28100618B00 /* Math */,
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
 				8931988E1AA3BD6800B398CC /* MainMenu.xib */,
 				893198821AA3BD6800B398CC /* Supporting Files */,
@@ -177,8 +186,7 @@
 			children = (
 				896CD0411AA430E2004CBBB1 /* CharacterSpec.swift */,
 				896CD0461AA56567004CBBB1 /* GameViewSpec.swift */,
-				89E936741AAB6A0F003ED89C /* MathSpec.swift */,
-				89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */,
+				89B6F9601AAEA28F00618B00 /* Math */,
 				896CD04D1AA6D6B3004CBBB1 /* Landscape */,
 				893198A51AA3C09400B398CC /* Nimble.framework */,
 				893198A61AA3C09400B398CC /* Quick.framework */,
@@ -199,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				893198A91AA3C16500B398CC /* LandScapeSpec.swift */,
+				89B6F95D1AAEA20700618B00 /* TileSpec.swift */,
 				896CD04B1AA6D6AC004CBBB1 /* TreeSpec.swift */,
 				89B6F9581AAC0EB900618B00 /* OceanSpec.swift */,
 			);
@@ -209,10 +218,31 @@
 			isa = PBXGroup;
 			children = (
 				893198AB1AA3C1AD00B398CC /* LandScape.swift */,
+				89B6F95A1AAEA1D400618B00 /* Tile.swift */,
 				896CD0481AA6D689004CBBB1 /* Tree.swift */,
 				89B6F9551AAC0E9C00618B00 /* Ocean.swift */,
 			);
 			name = Landscape;
+			sourceTree = "<group>";
+		};
+		89B6F95F1AAEA28100618B00 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				89E936711AAB699A003ED89C /* Math.swift */,
+				89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */,
+				89B6F9611AAEA2A100618B00 /* Vector2.swift */,
+			);
+			name = Math;
+			sourceTree = "<group>";
+		};
+		89B6F9601AAEA28F00618B00 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				89E936741AAB6A0F003ED89C /* MathSpec.swift */,
+				89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */,
+				89B6F9641AAEA2B800618B00 /* Vector2Spec.swift */,
+			);
+			name = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				893198871AA3BD6800B398CC /* GameView.swift in Sources */,
+				89B6F9621AAEA2A100618B00 /* Vector2.swift in Sources */,
 				893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */,
 				89B6F9561AAC0E9C00618B00 /* Ocean.swift in Sources */,
 				896CD03F1AA43048004CBBB1 /* Character.swift in Sources */,
@@ -325,6 +356,7 @@
 				896CD04F1AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */,
 				893198891AA3BD6800B398CC /* GameViewController.swift in Sources */,
 				893198851AA3BD6800B398CC /* AppDelegate.swift in Sources */,
+				89B6F95B1AAEA1D500618B00 /* Tile.swift in Sources */,
 				89A86A021AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,8 +365,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B6F95C1AAEA1D500618B00 /* Tile.swift in Sources */,
 				896CD0501AA6E054004CBBB1 /* Color+Swift-Crossing.swift in Sources */,
+				89B6F95E1AAEA20700618B00 /* TileSpec.swift in Sources */,
 				89E936731AAB699A003ED89C /* Math.swift in Sources */,
+				89B6F9651AAEA2B800618B00 /* Vector2Spec.swift in Sources */,
 				893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */,
 				893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */,
 				896CD0401AA43054004CBBB1 /* Character.swift in Sources */,
@@ -348,6 +383,7 @@
 				896CD04A1AA6D689004CBBB1 /* Tree.swift in Sources */,
 				896CD0471AA56567004CBBB1 /* GameViewSpec.swift in Sources */,
 				89A86A051AAC00D700F898CD /* SCNVector3+SCSpec.swift in Sources */,
+				89B6F9631AAEA2A100618B00 /* Vector2.swift in Sources */,
 				893198AF1AA3C2C800B398CC /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
