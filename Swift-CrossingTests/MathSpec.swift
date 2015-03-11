@@ -16,5 +16,26 @@ class MathSpec: QuickSpec {
                 expect(clamp(-2, -1, 1) == -1).to(beTruthy())
             }
         }
+
+        describe("Fractal Brownian Motion") {
+            var subject: FractalBrownianMotion! = nil
+            beforeEach {
+                subject = FractalBrownianMotion()
+            }
+
+            it("should return 0 by default for everything") {
+                expect(subject.at(10, 5)).to(equal(0))
+            }
+
+            describe("Setting a noise function") {
+                beforeEach {
+                    subject.noise = {(x, y) in x*y }
+                }
+
+                it("should return numbers based on the noise function") {
+                    expect(subject.at(5, 10)).to(equal(0.0175))
+                }
+            }
+        }
     }
 }

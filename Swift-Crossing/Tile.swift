@@ -11,7 +11,7 @@ import SceneKit
 class Tile : SCNNode {
     var location : Vector2 = Vector2() {
         didSet {
-            self.position = SCNVector3Make(location.x + 0.5, 0, location.z + 0.5)
+            self.position = SCNVector3Make(location.x + 0.5, self.position.y, location.z + 0.5)
         }
     }
 }
