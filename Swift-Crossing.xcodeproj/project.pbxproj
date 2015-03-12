@@ -44,6 +44,8 @@
 		89B6F9621AAEA2A100618B00 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9611AAEA2A100618B00 /* Vector2.swift */; };
 		89B6F9631AAEA2A100618B00 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9611AAEA2A100618B00 /* Vector2.swift */; };
 		89B6F9651AAEA2B800618B00 /* Vector2Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B6F9641AAEA2B800618B00 /* Vector2Spec.swift */; };
+		89B6F9C11AB1626000618B00 /* ProceduralKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B6F9C01AB1626000618B00 /* ProceduralKit.framework */; };
+		89B6F9C21AB1626000618B00 /* ProceduralKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B6F9C01AB1626000618B00 /* ProceduralKit.framework */; };
 		89E936721AAB699A003ED89C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936711AAB699A003ED89C /* Math.swift */; };
 		89E936731AAB699A003ED89C /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936711AAB699A003ED89C /* Math.swift */; };
 		89E936751AAB6A0F003ED89C /* MathSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E936741AAB6A0F003ED89C /* MathSpec.swift */; };
@@ -114,6 +116,7 @@
 		89B6F95D1AAEA20700618B00 /* TileSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileSpec.swift; sourceTree = "<group>"; };
 		89B6F9611AAEA2A100618B00 /* Vector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
 		89B6F9641AAEA2B800618B00 /* Vector2Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2Spec.swift; sourceTree = "<group>"; };
+		89B6F9C01AB1626000618B00 /* ProceduralKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProceduralKit.framework; path = Carthage/Build/Mac/ProceduralKit.framework; sourceTree = SOURCE_ROOT; };
 		89E936711AAB699A003ED89C /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		89E936741AAB6A0F003ED89C /* MathSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89B6F9C11AB1626000618B00 /* ProceduralKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				893198A81AA3C09400B398CC /* Quick.framework in Frameworks */,
+				89B6F9C21AB1626000618B00 /* ProceduralKit.framework in Frameworks */,
 				893198A71AA3C09400B398CC /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +174,7 @@
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
 				8931988E1AA3BD6800B398CC /* MainMenu.xib */,
 				893198821AA3BD6800B398CC /* Supporting Files */,
+				89B6F9C01AB1626000618B00 /* ProceduralKit.framework */,
 			);
 			path = "Swift-Crossing";
 			sourceTree = "<group>";
@@ -492,6 +498,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "Swift-Crossing/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -503,6 +513,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "Swift-Crossing/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +534,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac/**",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -548,6 +563,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac/**",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
