@@ -18,7 +18,21 @@ class LandScape : SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var tiles : [[Tile]] = []
+
     private func generateLandScape() {
+        tiles = []
+        for y in 0..<100 {
+            var row : [Tile] = []
+            for x in 0..<100 {
+                let tile = Tile()
+                addChildNode(tile)
+                tile.position = SCNVector3Make(CGFloat(x - 50), 0, CGFloat(y - 50))
+                row.append(tile)
+            }
+            tiles.append(row)
+        }
+
         let floor = SCNPlane(width: 100, height: 100)
 
         let mat = SCNMaterial()
@@ -35,6 +49,7 @@ class LandScape : SCNNode {
             wallMaterial.diffuse.contents = NSColor.brownColor()
             wall.firstMaterial = wallMaterial
             let n = SCNNode(geometry: wall)
+            n.name = "Wall"
 
             let angle = CGFloat(M_PI_2)
 
@@ -49,6 +64,7 @@ class LandScape : SCNNode {
                 n.eulerAngles = SCNVector3Make(angle, 0, -angle)
             }
             addChildNode(n)
+            n.physicsBody = SCNPhysicsBody.staticBody()
         }
         physicsBody = SCNPhysicsBody.staticBody()
     }

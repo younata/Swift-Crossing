@@ -15,5 +15,22 @@ class Tile : SCNNode {
         }
     }
 
+    var subnode : SCNNode = SCNNode()
+
     var canWalkOn: Bool = true
+
+    override init() {
+        super.init()
+        let geom = SCNPlane(width: 1, height: 1)
+        geom.firstMaterial?.diffuse.contents = NSColor.grassGreen()
+
+        subnode = SCNNode(geometry: geom)
+        subnode.eulerAngles = SCNVector3Make(CGFloat(-M_PI_2), 0, 0)
+        subnode.physicsBody = SCNPhysicsBody.staticBody()
+        addChildNode(subnode)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

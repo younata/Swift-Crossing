@@ -11,26 +11,21 @@ class LandScapeSpec: QuickSpec {
         }
 
         describe("Creating a new landscape") {
-            it("should create a plane with a green color") { // For now.
-                let n = subject.childNodeWithName("Floor", recursively: false)
-                expect(n).toNot(beNil())
-                if let floor = n {
-                    expect(floor.eulerAngles).to(equal(SCNVector3Make(CGFloat(-M_PI_2), 0, 0)))
-                    expect(floor.geometry).to(beAnInstanceOf(SCNPlane.self))
-                    if let geom = floor.geometry as? SCNPlane {
-                        expect(geom.width).to(equal(100))
-                        expect(geom.height).to(equal(100))
-                        expect(geom.firstMaterial).toNot(beNil())
-                        if let mat = geom.firstMaterial {
-                            let color = mat.diffuse.contents as! NSColor
-                            expect(color).to(equal(NSColor.grassGreen()))
-                        }
+            it("should create a grid of 100x100 tiles") { // For now.
+                expect(subject.tiles.count).to(equal(100))
+                for (y, row) in enumerate(subject.tiles) {
+                    expect(row.count).to(equal(100))
+                    for (x, tile) in enumerate(row) {
+                        expect(tile).to(beAnInstanceOf(Tile.self))
+                        expect(tile.parentNode).to(equal(subject))
+                        let pos = SCNVector3Make(CGFloat(x - 50), 0, CGFloat(y - 50))
+                        expect(tile.position).to(equal(pos))
                     }
                 }
             }
 
             it("have 3 brown walls (cliffs) on the back and sides that each extend up 10 units") {
-                let childNodes = subject.childNodesPassingTest {(node, _) in node.name != "Floor" }
+                let childNodes = subject.childNodesPassingTest {(node, _) in node.name == "Wall" }
                 expect(childNodes.count).to(equal(3))
                 for (i,x) in enumerate(childNodes) {
                     expect(x.geometry).to(beAnInstanceOf(SCNPlane.self))
@@ -55,13 +50,10 @@ class LandScapeSpec: QuickSpec {
                         expect(x.position).to(equal(SCNVector3Make(50, 7.5, 0)))
                         expect(x.eulerAngles).to(equal(SCNVector3Make(angle, 0, -angle)))
                     }
-                }
-            }
-
-            it("should attach a static physics body") {
-                expect(subject.physicsBody).toNot(beNil())
-                if let body = subject.physicsBody {
-                    expect(body.type).to(equal(SCNPhysicsBodyType.Static))
+                    expect(x.physicsBody).toNot(beNil())
+                    if let body = x.physicsBody {
+                        expect(body?.type).to(equal(SCNPhysicsBodyType.Static))
+                    }
                 }
             }
         }
