@@ -14,4 +14,6 @@ class Tile : SCNNode {
             self.position = SCNVector3Make(location.x + 0.5, self.position.y, location.z + 0.5)
         }
     }
+
+    var canWalkOn: Bool = true
 }

@@ -10,7 +10,7 @@ class OceanSpec: QuickSpec {
             subject = Ocean()
         }
 
-        it("should be a blue plane for now") {
+        it("should be a blue tile for now") {
             let n = subject.childNodeWithName("Ocean", recursively: false)
             expect(n).toNot(beNil())
             if let node = n {
@@ -27,8 +27,8 @@ class OceanSpec: QuickSpec {
                         let color = mat.diffuse.contents as! NSColor
                         expect(color).to(equal(NSColor.blueColor()))
                     }
-                    expect(geom.height).to(equal(10))
-                    expect(geom.width).to(equal(100))
+                    expect(geom.height).to(equal(1))
+                    expect(geom.width).to(equal(1))
                 }
             }
         }

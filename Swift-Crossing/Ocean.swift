@@ -8,10 +8,11 @@
 
 import SceneKit
 
-class Ocean: SCNNode {
+class Ocean: Tile {
     override init() {
         super.init()
-        let ocean = SCNPlane(width: 100, height: 10)
+        self.canWalkOn = true
+        let ocean = SCNPlane(width: 1, height: 1)
         ocean.firstMaterial?.diffuse.contents = NSColor.blueColor()
 
         let oceanNode = SCNNode(geometry: ocean)
@@ -25,10 +26,5 @@ class Ocean: SCNNode {
         let wall = SCNPlane(width: 100, height: 10)
         wallNode.physicsBody = SCNPhysicsBody(type: .Static, shape: SCNPhysicsShape(geometry: wall, options: nil))
         addChildNode(wallNode)
-
-    }
-
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
