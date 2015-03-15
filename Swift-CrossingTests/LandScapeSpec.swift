@@ -18,8 +18,21 @@ class LandScapeSpec: QuickSpec {
                     for (x, tile) in enumerate(row) {
                         expect(tile).to(beAnInstanceOf(Tile.self))
                         expect(tile.parentNode).to(equal(subject))
-                        let pos = SCNVector3Make(CGFloat(x - 50), 0, CGFloat(y - 50))
-                        expect(tile.position).to(equal(pos))
+                        let pos = Vector2(x: CGFloat(x - 50), z: CGFloat(y - 50))
+                        expect(tile.location).to(equal(pos))
+                    }
+                }
+            }
+
+            it("should create an ocean") {
+                expect(subject.ocean.count).to(equal(10))
+                for (y, row) in enumerate(subject.ocean) {
+                    expect(row.count).to(equal(120))
+                    for (x, tile) in enumerate(row) {
+                        expect(tile).to(beAnInstanceOf(Ocean.self))
+                        expect(tile.parentNode).to(equal(subject))
+                        let pos = Vector2(x: CGFloat(x - 60), z: CGFloat(y + 50))
+
                     }
                 }
             }

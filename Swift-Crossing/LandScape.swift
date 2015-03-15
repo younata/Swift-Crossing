@@ -19,6 +19,7 @@ class LandScape : SCNNode {
     }
 
     var tiles : [[Tile]] = []
+    var ocean : [[Ocean]] = []
 
     private func generateLandScape() {
         tiles = []
@@ -27,21 +28,22 @@ class LandScape : SCNNode {
             for x in 0..<100 {
                 let tile = Tile()
                 addChildNode(tile)
-                tile.position = SCNVector3Make(CGFloat(x - 50), 0, CGFloat(y - 50))
+                tile.location = Vector2(x: CGFloat(x - 50), z: CGFloat(y - 50))
                 row.append(tile)
             }
             tiles.append(row)
         }
 
-        let floor = SCNPlane(width: 100, height: 100)
-
-        let mat = SCNMaterial()
-        mat.diffuse.contents = NSColor.grassGreen()
-        floor.firstMaterial = mat
-        let floorNode = SCNNode(geometry: floor)
-        floorNode.name = "Floor"
-        floorNode.eulerAngles = SCNVector3Make(CGFloat(-M_PI_2), 0, 0)
-        addChildNode(floorNode)
+        for y in 0..<10 {
+            var row : [Ocean] = []
+            for x in 0..<120 {
+                let o = Ocean()
+                addChildNode(o)
+                o.location = Vector2(x: CGFloat(x - 60), z: CGFloat(y + 50))
+                row.append(o)
+            }
+            ocean.append(row)
+        }
 
         for i in 0..<3 {
             let wall = SCNPlane(width: 15, height: 100)
