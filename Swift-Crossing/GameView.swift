@@ -62,6 +62,14 @@ class GameView: SCNView, SCNSceneRendererDelegate {
         backgroundColor = NSColor.blackColor()
     }
 
+    override func mouseUp(theEvent: NSEvent) {
+        super.mouseUp(theEvent)
+
+        for tree in trees {
+            tree.shake()
+        }
+    }
+
     override func keyDown(theEvent: NSEvent) {
         super.keyDown(theEvent)
         let keyCode = theEvent.keyCode

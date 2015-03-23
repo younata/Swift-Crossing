@@ -16,5 +16,12 @@ class MathSpec: QuickSpec {
                 expect(clamp(-2, -1, 1) == -1).to(beTruthy())
             }
         }
+
+        describe("degreeToRadian") {
+            it("convert from degrees to radians") {
+                expect(degreeToRadian(30)).to(beCloseTo(0.523598, within: 1e-6))
+                expect(degreeToRadian(180)).to(beCloseTo(3.141592, within: 1e-6))
+            }
+        }
     }
 }

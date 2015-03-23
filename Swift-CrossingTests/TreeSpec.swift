@@ -4,15 +4,15 @@ import SceneKit
 
 class TreeSpec: QuickSpec {
     override func spec() {
-        var tree: Tree! = nil
+        var subject: Tree! = nil
 
         beforeEach {
-            tree = Tree()
+            subject = Tree()
         }
 
         it("should have a brown cylinder as the base") {
-            expect(tree.geometry).to(beAnInstanceOf(SCNCylinder.self))
-            if let geom = tree.geometry as? SCNCylinder {
+            expect(subject.geometry).to(beAnInstanceOf(SCNCylinder.self))
+            if let geom = subject.geometry as? SCNCylinder {
                 expect(geom.firstMaterial).toNot(beNil())
                 if let mat = geom.firstMaterial, color = mat.diffuse.contents as? NSColor {
                     expect(color).to(equal(NSColor.brownColor()))
@@ -23,8 +23,8 @@ class TreeSpec: QuickSpec {
         }
 
         it("should have a green slightly transparent sphere") {
-            expect(tree.childNodes.count).to(equal(1))
-            if let node = tree.childNodes.first as? SCNNode {
+            expect(subject.childNodes.count).to(equal(1))
+            if let node = subject.childNodes.first as? SCNNode {
                 expect(node.geometry).to(beAnInstanceOf(SCNSphere.self))
                 if let geom = node.geometry as? SCNSphere {
                     expect(geom.firstMaterial).toNot(beNil())
@@ -37,7 +37,18 @@ class TreeSpec: QuickSpec {
                     expect(geom.radius).to(equal(1))
                 }
 
-                expect(node.position).to(equal(SCNVector3Make(0, 1.5, 0)))
+                expect(node.position).to(equal(SCNVector3Make(0, 1.25, 0)))
+                expect(SCNMatrix4EqualToMatrix4(node.pivot, SCNMatrix4MakeTranslation(0, -0.25, 0))).to(beTruthy())
+            }
+        }
+
+        describe("shaking") {
+            beforeEach {
+                subject.shake()
+            }
+
+            it("should add an action to the leavesNode") {
+                expect(subject.leavesNode?.actionForKey("Shake")).toNot(beNil())
             }
         }
     }
