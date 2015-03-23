@@ -33,6 +33,9 @@
 		898E5C011ABF356E001C0B50 /* Weed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E5C001ABF356E001C0B50 /* Weed.swift */; };
 		898E5C021ABF356E001C0B50 /* Weed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E5C001ABF356E001C0B50 /* Weed.swift */; };
 		898E5C041ABF3594001C0B50 /* WeedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E5C031ABF3594001C0B50 /* WeedSpec.swift */; };
+		898E5C061ABFDA22001C0B50 /* Beach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E5C051ABFDA22001C0B50 /* Beach.swift */; };
+		898E5C071ABFDA22001C0B50 /* Beach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E5C051ABFDA22001C0B50 /* Beach.swift */; };
+		898E5C091ABFDA34001C0B50 /* BeachSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898E5C081ABFDA34001C0B50 /* BeachSpec.swift */; };
 		89A86A021AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */; };
 		89A86A031AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */; };
 		89A86A051AAC00D700F898CD /* SCNVector3+SCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */; };
@@ -111,6 +114,8 @@
 		896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Swift-Crossing.swift"; sourceTree = "<group>"; };
 		898E5C001ABF356E001C0B50 /* Weed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weed.swift; sourceTree = "<group>"; };
 		898E5C031ABF3594001C0B50 /* WeedSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeedSpec.swift; sourceTree = "<group>"; };
+		898E5C051ABFDA22001C0B50 /* Beach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beach.swift; sourceTree = "<group>"; };
+		898E5C081ABFDA34001C0B50 /* BeachSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeachSpec.swift; sourceTree = "<group>"; };
 		89A86A011AAC00AD00F898CD /* SCNVector3+SC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+SC.swift"; sourceTree = "<group>"; };
 		89A86A041AAC00D700F898CD /* SCNVector3+SCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNVector3+SCSpec.swift"; sourceTree = "<group>"; };
 		89B6F9551AAC0E9C00618B00 /* Ocean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ocean.swift; sourceTree = "<group>"; };
@@ -172,7 +177,6 @@
 				893198861AA3BD6800B398CC /* GameView.swift */,
 				896CD03E1AA43048004CBBB1 /* Character.swift */,
 				89B6F9541AAC0E7B00618B00 /* Landscape */,
-				898E5C001ABF356E001C0B50 /* Weed.swift */,
 				896CD04E1AA6E054004CBBB1 /* Color+Swift-Crossing.swift */,
 				89B6F95F1AAEA28100618B00 /* Math */,
 				8931988C1AA3BD6800B398CC /* Images.xcassets */,
@@ -221,6 +225,7 @@
 				89B6F95D1AAEA20700618B00 /* TileSpec.swift */,
 				896CD04B1AA6D6AC004CBBB1 /* TreeSpec.swift */,
 				89B6F9581AAC0EB900618B00 /* OceanSpec.swift */,
+				898E5C081ABFDA34001C0B50 /* BeachSpec.swift */,
 			);
 			name = Landscape;
 			sourceTree = "<group>";
@@ -230,8 +235,10 @@
 			children = (
 				893198AB1AA3C1AD00B398CC /* LandScape.swift */,
 				89B6F95A1AAEA1D400618B00 /* Tile.swift */,
-				896CD0481AA6D689004CBBB1 /* Tree.swift */,
 				89B6F9551AAC0E9C00618B00 /* Ocean.swift */,
+				898E5C051ABFDA22001C0B50 /* Beach.swift */,
+				896CD0481AA6D689004CBBB1 /* Tree.swift */,
+				898E5C001ABF356E001C0B50 /* Weed.swift */,
 			);
 			name = Landscape;
 			sourceTree = "<group>";
@@ -362,6 +369,7 @@
 				893198AC1AA3C1AD00B398CC /* LandScape.swift in Sources */,
 				89B6F9561AAC0E9C00618B00 /* Ocean.swift in Sources */,
 				896CD03F1AA43048004CBBB1 /* Character.swift in Sources */,
+				898E5C061ABFDA22001C0B50 /* Beach.swift in Sources */,
 				898E5C011ABF356E001C0B50 /* Weed.swift in Sources */,
 				896CD0491AA6D689004CBBB1 /* Tree.swift in Sources */,
 				89E936721AAB699A003ED89C /* Math.swift in Sources */,
@@ -384,6 +392,7 @@
 				89E936731AAB699A003ED89C /* Math.swift in Sources */,
 				89B6F9651AAEA2B800618B00 /* Vector2Spec.swift in Sources */,
 				893198AE1AA3C2C500B398CC /* GameViewController.swift in Sources */,
+				898E5C071ABFDA22001C0B50 /* Beach.swift in Sources */,
 				898E5C041ABF3594001C0B50 /* WeedSpec.swift in Sources */,
 				893198AD1AA3C2C100B398CC /* LandScape.swift in Sources */,
 				896CD0401AA43054004CBBB1 /* Character.swift in Sources */,
@@ -392,6 +401,7 @@
 				89B6F9571AAC0E9C00618B00 /* Ocean.swift in Sources */,
 				896CD04C1AA6D6AC004CBBB1 /* TreeSpec.swift in Sources */,
 				89A86A031AAC00AD00F898CD /* SCNVector3+SC.swift in Sources */,
+				898E5C091ABFDA34001C0B50 /* BeachSpec.swift in Sources */,
 				896CD0421AA430E2004CBBB1 /* CharacterSpec.swift in Sources */,
 				89B6F9591AAC0EB900618B00 /* OceanSpec.swift in Sources */,
 				896CD04A1AA6D689004CBBB1 /* Tree.swift in Sources */,

@@ -55,7 +55,12 @@ class LandScape : SCNNode {
         for y in 0..<100 {
             var row : [Tile] = []
             for x in 0..<100 {
-                let tile = Tile()
+                let tile: Tile
+                if y == 99 {
+                    tile = Beach()
+                } else {
+                    tile = Tile()
+                }
                 addChildNode(tile)
                 tile.location = Vector2(x: CGFloat(x - 50), z: CGFloat(y - 50))
                 row.append(tile)

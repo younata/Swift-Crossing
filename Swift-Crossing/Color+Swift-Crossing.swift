@@ -16,4 +16,8 @@ extension NSColor {
     class func grassGreen() -> NSColor {
         return NSColor(calibratedRed: 77.0 / 255.0, green: 189.0 / 255.0, blue: 51 / 255.0, alpha: 1.0)
     }
+
+    class func sandColor() -> NSColor {
+        return NSColor(calibratedRed: 194.0 / 255.0, green: 178.0 / 255.0, blue: 128.0 / 255.0, alpha: 1.0)
+    }
 }

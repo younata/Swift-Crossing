@@ -26,7 +26,11 @@ class LandScapeSpec: QuickSpec {
                 for (y, row) in enumerate(subject.tiles) {
                     expect(row.count).to(equal(100))
                     for (x, tile) in enumerate(row) {
-                        expect(tile).to(beAnInstanceOf(Tile.self))
+                        if (y == 99) {
+                            expect(tile).to(beAnInstanceOf(Beach.self))
+                        } else {
+                            expect(tile).toNot(beAnInstanceOf(Beach.self))
+                        }
                         expect(tile.parentNode).to(equal(subject))
                         let pos = Vector2(x: CGFloat(x - 50), z: CGFloat(y - 50))
                         expect(tile.location).to(equal(pos))
