@@ -21,6 +21,35 @@ class LandScape : SCNNode {
     var tiles : [[Tile]] = []
     var ocean : [[Ocean]] = []
 
+    var weedTiles : [Tile] = []
+
+    func addWeeds() {
+        let maxNumberOfWeedsToAdd = 3
+
+        var currentNumberOfWeeds = maxNumberOfWeedsToAdd
+
+        func selectTile() -> Tile {
+            var x = Int(arc4random_uniform(UInt32(tiles.count)))
+
+            let row = tiles[x]
+
+            let y = Int(arc4random_uniform(UInt32(tiles.count)))
+
+            return row[y]
+        }
+
+        while currentNumberOfWeeds > 0 {
+            let tile = selectTile()
+            if contains(weedTiles.map({$0.location}), tile.location) {
+                continue;
+            }
+            let weed = Weed()
+            tile.addChildNode(weed)
+            weedTiles.append(tile)
+            currentNumberOfWeeds--
+        }
+    }
+
     private func generateLandScape() {
         tiles = []
         for y in 0..<100 {
@@ -44,6 +73,8 @@ class LandScape : SCNNode {
             }
             ocean.append(row)
         }
+
+        addWeeds()
 
         for i in 0..<3 {
             let wall = SCNPlane(width: 15, height: 100)

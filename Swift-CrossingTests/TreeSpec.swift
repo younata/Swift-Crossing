@@ -14,8 +14,7 @@ class TreeSpec: QuickSpec {
             expect(tree.geometry).to(beAnInstanceOf(SCNCylinder.self))
             if let geom = tree.geometry as? SCNCylinder {
                 expect(geom.firstMaterial).toNot(beNil())
-                if let mat = geom.firstMaterial {
-                    let color = mat.diffuse.contents as! NSColor
+                if let mat = geom.firstMaterial, color = mat.diffuse.contents as? NSColor {
                     expect(color).to(equal(NSColor.brownColor()))
                 }
                 expect(geom.height).to(equal(1.5))

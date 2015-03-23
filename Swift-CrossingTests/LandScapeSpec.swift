@@ -10,6 +10,16 @@ class LandScapeSpec: QuickSpec {
             subject = LandScape()
         }
 
+        describe("adding weeds") {
+            it("should add weeds") {
+                expect(subject.weedTiles.count).to(equal(3))
+
+                subject.addWeeds()
+
+                expect(subject.weedTiles.count).to(equal(6))
+            }
+        }
+
         describe("Creating a new landscape") {
             it("should create a grid of 100x100 tiles") { // For now.
                 expect(subject.tiles.count).to(equal(100))
