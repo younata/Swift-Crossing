@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import SceneKit
+import GameController
 
 class FakeCharacter : Character {
     var x: CGFloat? = nil
@@ -161,6 +162,14 @@ class GameViewSpec: QuickSpec {
                     
                     charMove(-1, 0)
                 }
+            }
+        }
+
+        describe("Controllers") {
+            var controller : GCController! = nil
+
+            beforeEach {
+                controller = GCController()
             }
         }
     }

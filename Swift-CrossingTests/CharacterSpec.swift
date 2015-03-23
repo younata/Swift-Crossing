@@ -34,6 +34,13 @@ class CharacterSpec: QuickSpec {
             }
         }
 
+        describe("Setting velocity") {
+            it("should set the physicsBody velocity absolutely") {
+                subject.velocity = Vector2(x: 0.5, z: 1)
+                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(0.5, 0, 1)))
+            }
+        }
+
         describe("Moving a character") {
             it("should start not moving") {
                 expect(subject.physicsBody?.velocity).to(equal(SCNVector3Zero))

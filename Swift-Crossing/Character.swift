@@ -20,6 +20,13 @@ class Character : SCNNode {
 
     private var movementVector: (x: CGFloat, z: CGFloat, running: Bool) = (0,0,false)
 
+    var velocity : Vector2 = Vector2() {
+        didSet {
+            physicsBody?.velocity = SCNVector3Make(velocity.x, 0, velocity.z)
+            movementVector = (x: 0, z: 0, running: false)
+        }
+    }
+
     func moveCharacter(x: CGFloat, _ z: CGFloat) {
         if let body = physicsBody {
             movementVector.x += x

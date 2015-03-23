@@ -1,5 +1,5 @@
 import SceneKit
-import GLKit
+import GameController
 
 class GameView: SCNView, SCNSceneRendererDelegate {
 
@@ -60,6 +60,26 @@ class GameView: SCNView, SCNSceneRendererDelegate {
         allowsCameraControl = true
         jitteringEnabled = true
         backgroundColor = NSColor.blackColor()
+
+        GCController.startWirelessControllerDiscoveryWithCompletionHandler {
+            if let controller = GCController.controllers().first as? GCController {
+                self.setupController(controller)
+            }
+        }
+    }
+
+    func setupController(controller: GCController) {
+        controller.controllerPausedHandler = {(controller) in
+        }
+
+        if let gamepad = controller.gamepad {
+            gamepad.valueChangedHandler = {(gamepad, element) in
+                if let pad = element as? GCControllerDirectionPad {
+                    let vel = Vector2(x: CGFloat(pad.xAxis.value()), z: CGFloat(pad.yAxis.value()))
+                    self.character?.velocity = vel
+                }
+            }
+        }
     }
 
     override func mouseUp(theEvent: NSEvent) {
