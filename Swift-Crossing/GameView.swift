@@ -1,11 +1,19 @@
 import SceneKit
 import GameController
+import Ra
 
 class GameView: SCNView, SCNSceneRendererDelegate {
 
     var character : Character? = nil
     var cameraNode : SCNNode? = nil
     var trees : [Tree] = []
+
+    lazy var anInjector : Ra.Injector? = {
+        let injector = Ra.Injector()
+        let appModule = ApplicationModule()
+        appModule.inject(injector)
+        return injector
+    }()
 
     func setup() {
         let scene = SCNScene()
