@@ -29,7 +29,7 @@ class SimulationSpec: QuickSpec {
             let components = NSDateComponents()
             components.hour = 6
             expect(landscape.weedTiles.count).to(equal(3))
-            subject.addAction(Action(fireDate: date, repeatComponents: components, action: landscape.addWeeds))
+            subject.addAction(Action(fireDate: date, repeatComponents: components, action: {(_) in landscape.addWeeds()}))
             subject.start()
         }
 

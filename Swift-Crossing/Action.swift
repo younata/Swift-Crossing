@@ -10,10 +10,12 @@ import Foundation
 
 class Action : Comparable { // Lawsuit
     private(set) var fireDate: NSDate
-    let action : (Void) -> (Void)
+    let action : (NSTimeInterval) -> (Void)
     let repeatComponents : NSDateComponents?
 
-    init(fireDate: NSDate, repeatComponents: NSDateComponents?, action: (Void) -> (Void)) {
+    private var lastFireDate: NSDate? = nil
+
+    init(fireDate: NSDate, repeatComponents: NSDateComponents?, action: (NSTimeInterval) -> (Void)) {
         self.fireDate = fireDate
         self.repeatComponents = repeatComponents
         self.action = action
@@ -21,13 +23,19 @@ class Action : Comparable { // Lawsuit
 
     func runActionIfPossible(date: NSDate) -> Bool {
         let res = fireDate.compare(date)
-        println("\(fireDate), \(date)")
-        println("orderedAscending: \(res == .OrderedAscending), orderedSame: \(res == .OrderedSame), orderedDescending: \(res == .OrderedDescending)")
         if fireDate.compare(date) != .OrderedDescending {
-            action()
+            let delta : NSTimeInterval
+            if let lastFireDate = self.lastFireDate {
+                delta = date.timeIntervalSinceDate(lastFireDate)
+            } else {
+                delta = 0
+            }
+
+            action(delta)
             let calendar = NSCalendar.currentCalendar()
-            if let repeatComponents = self.repeatComponents, date = calendar.nextDateAfterDate(fireDate, matchingComponents: repeatComponents, options: .MatchNextTimePreservingSmallerUnits) {
-                fireDate = date
+            if let repeatComponents = self.repeatComponents, nextFireDate = calendar.nextDateAfterDate(fireDate, matchingComponents: repeatComponents, options: .MatchNextTimePreservingSmallerUnits) {
+                fireDate = nextFireDate
+                lastFireDate = date
             }
             return true
         }
