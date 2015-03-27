@@ -8,17 +8,16 @@
 
 import Foundation
 
-class Timer {
+class Timer : NSObject {
     var timer : NSTimer! = nil
 
     private(set) var action : ((NSDate) -> (Void))? = nil
-
-    init() {}
 
     func configure(interval: NSTimeInterval, action: (NSDate) -> (Void)) {
         self.action = action
 
         self.timer = NSTimer(fireDate: NSDate(), interval: interval, target: self, selector: "timerFired:", userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(self.timer, forMode: NSDefaultRunLoopMode)
 
     }
 
