@@ -6,15 +6,15 @@ import GameController
 class FakeCharacter : Character {
     var x: CGFloat? = nil
     var z: CGFloat? = nil
-    var running: Bool = false
+    var isRunning: Bool = false
 
     override func moveCharacter(x: CGFloat, _ z: CGFloat) {
         self.x = x
         self.z = z
     }
 
-    override func toggleRunning() {
-        running = !running
+    override func setRunning(running: Bool) {
+        isRunning = running
     }
 }
 

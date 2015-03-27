@@ -31,6 +31,13 @@ class SCNVector3_SCSpec: QuickSpec {
             expect(a != 0).to(beTruthy())
         }
 
+        fdescribe("-normalize") {
+            it("returns a new vector normalized to 0-1") {
+                let OneOversqrt3 = CGFloat(1.0) / sqrt(CGFloat(3))
+                expect(SCNVector3Make(1, 1, 1).normalize()).to(equal(SCNVector3Make(OneOversqrt3, OneOversqrt3, OneOversqrt3)))
+            }
+        }
+
         describe("Adding") {
 
             it("should add two SCNVector3s") {

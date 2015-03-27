@@ -20,7 +20,9 @@ class Simulation {
 
     func start() {
         timer = injector?.create(kTimer) as? Timer
-        timer?.configure(1.0 / 60.0, action: onTimerFire)
+        if let timer = self.timer {
+            timer.configure(1.0 / 60.0, action: onTimerFire)
+        }
     }
 
     func addAction(action: Action) {

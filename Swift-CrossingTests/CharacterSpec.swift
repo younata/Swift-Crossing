@@ -34,77 +34,85 @@ class CharacterSpec: QuickSpec {
             }
         }
 
-        describe("Setting velocity") {
-            it("should set the physicsBody velocity absolutely") {
+        fdescribe("Setting velocity") {
+            it("should set the velocity absolutely") {
+                subject.moveCharacter(-1, 0)
                 subject.velocity = Vector2(x: 0.5, z: 1)
-                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(0.5, 0, 1)))
+                subject.updateCharacter(1)
+                expect(subject.position).to(equal(SCNVector3Make(0.5, 0, 1).normalize()))
             }
         }
 
-        describe("Moving a character") {
-            it("should start not moving") {
-                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Zero))
-            }
-
+        fdescribe("Moving a character") {
             it("should allow the character to move left") {
                 subject.moveCharacter(-1, 0)
-                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(-1, 0, 0)))
+                subject.updateCharacter(1)
+                expect(subject.position).to(equal(SCNVector3Make(-1, 0, 0)))
             }
 
             it("should allow the character to move up") {
                 subject.moveCharacter(0, 1)
-                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(0, 0, 1)))
+                subject.updateCharacter(1)
+                expect(subject.position).to(equal(SCNVector3Make(0, 0, 1)))
             }
 
             it("should allow the character to move right") {
                 subject.moveCharacter(1, 0)
-                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(1, 0, 0)))
+                subject.updateCharacter(1)
+                expect(subject.position).to(equal(SCNVector3Make(1, 0, 0)))
             }
 
             it("should allow the character to move down") {
                 subject.moveCharacter(0, -1)
-                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(0, 0, -1)))
+                subject.updateCharacter(1)
+                expect(subject.position).to(equal(SCNVector3Make(0, 0, -1)))
             }
 
             it("should allow the character to move in two (non-opposite) directions") {
                 subject.moveCharacter(1, 0)
                 subject.moveCharacter(0, 1)
                 let x = CGFloat(sqrt(0.5))
-                expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(x, 0, x)))
+                subject.updateCharacter(1)
+                expect(subject.position).to(equal(SCNVector3Make(x, 0, x)))
             }
 
             context("When not running") {
                 it("should not move more than 1 unit/second") {
                     subject.moveCharacter(2, 0)
-                    expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(1, 0, 0)))
+                    subject.updateCharacter(1)
+                    expect(subject.position).to(equal(SCNVector3Make(1, 0, 0)))
                 }
 
                 it("should normalize to no faster than 1 unit/second") {
                     subject.moveCharacter(1, 1)
                     let x = CGFloat(sqrt(0.5))
-                    expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(x, 0, x)))
+                    subject.updateCharacter(1)
+                    expect(subject.position).to(equal(SCNVector3Make(x, 0, x)))
                 }
             }
 
             context("When running") {
                 beforeEach {
-                    subject.toggleRunning()
+                    subject.setRunning(true)
                 }
 
                 it("should double the speeds inputted") {
                     subject.moveCharacter(1, 0)
-                    expect(subject.physicsBody?.velocity).to(equal(SCNVector3Make(2, 0, 0)))
+                    subject.updateCharacter(1)
+                    expect(subject.position).to(equal(SCNVector3Make(2, 0, 0)))
                 }
             }
 
             describe("Moving back to zero") {
                 beforeEach {
                     subject.moveCharacter(1, 0)
+                    subject.updateCharacter(1)
                     subject.moveCharacter(-1, 0)
+                    subject.updateCharacter(1)
                 }
 
                 it("should set a velocity of (0, 0, 0)") {
-                    expect(subject.physicsBody?.velocity).to(equal(SCNVector3Zero))
+                    expect(subject.position).to(equal(SCNVector3Make(1, 0, 0)))
                 }
             }
         }

@@ -22,8 +22,7 @@ class Character : SCNNode {
 
     var velocity : Vector2 = Vector2() {
         didSet {
-            physicsBody?.velocity = SCNVector3Make(velocity.x, 0, velocity.z)
-            movementVector = (x: 0, z: 0, running: false)
+            movementVector = (x: velocity.x, z: velocity.z, running: movementVector.running)
         }
     }
 
@@ -34,19 +33,25 @@ class Character : SCNNode {
 
             movementVector.x = clamp(movementVector.x, -1, 1)
             movementVector.z = clamp(movementVector.z, -1, 1)
-
-            var magnitude = hypot(movementVector.x, movementVector.z)
-            magnitude = magnitude == 0 ? 1 : magnitude
-
-            let nx = (movementVector.x / magnitude) * (movementVector.running ? 2 : 1)
-            let nz = (movementVector.z / magnitude) * (movementVector.running ? 2 : 1)
-
-            physicsBody?.velocity = SCNVector3Make(nx, 0, nz)
         }
     }
 
-    func toggleRunning() {
-        movementVector.running = !movementVector.running
+    func setRunning(running: Bool) {
+        movementVector.running = running
+    }
+
+    func updateCharacter(delta: NSTimeInterval) {
+        println("\(delta)")
+        var magnitude = hypot(movementVector.x, movementVector.z)
+        magnitude = magnitude == 0 ? 1 : magnitude
+
+        let nx = (movementVector.x / magnitude) * (movementVector.running ? 2 : 1)
+        let nz = (movementVector.z / magnitude) * (movementVector.running ? 2 : 1)
+
+        let x = nx / CGFloat(delta)
+        let z = nz / CGFloat(delta)
+
+        self.position += SCNVector3Make(x, 0, z)
     }
 
     // MARK - Private Methods

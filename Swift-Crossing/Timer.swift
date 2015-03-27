@@ -11,7 +11,7 @@ import Foundation
 class Timer {
     var timer : NSTimer! = nil
 
-    var action : ((NSDate) -> (Void))? = nil
+    private(set) var action : ((NSDate) -> (Void))? = nil
 
     init() {}
 

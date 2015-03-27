@@ -12,6 +12,11 @@ extension SCNVector3 : Equatable, Printable {
     public var description : String {
         return "(\(x), \(y), \(z))"
     }
+
+    public func normalize() -> SCNVector3 {
+        let mag = sqrt(x*x + y*y + z*z)
+        return SCNVector3Make(x/mag, y/mag, z/mag)
+    }
 }
 
 public func ==(a: SCNVector3, b: SCNVector3) -> Bool {

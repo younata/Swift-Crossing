@@ -8,11 +8,15 @@ class GameView: SCNView, SCNSceneRendererDelegate {
     var cameraNode : SCNNode? = nil
     var trees : [Tree] = []
 
-    lazy var anInjector : Ra.Injector? = {
+    lazy var anInjector : Ra.Injector = {
         let injector = Ra.Injector()
         let appModule = ApplicationModule()
         appModule.inject(injector)
         return injector
+    }()
+
+    lazy var simulation : Simulation = {
+        return self.anInjector.create(kSimulation) as! Simulation
     }()
 
     func setup() {
@@ -63,6 +67,15 @@ class GameView: SCNView, SCNSceneRendererDelegate {
         self.scene = scene
         self.character = character
         self.cameraNode = cameraNode
+
+        let repeatEveryTime = NSDateComponents()
+        repeatEveryTime.nanosecond = 1
+        let characterUpdateAction = Action(fireDate: self.anInjector.create(NSDate.self) as! NSDate,
+                                   repeatComponents: repeatEveryTime,
+                                             action: character.updateCharacter)
+
+        simulation.addAction(characterUpdateAction)
+        simulation.start()
 
         showsStatistics = true
         allowsCameraControl = true
