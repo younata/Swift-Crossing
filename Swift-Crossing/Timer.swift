@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Timer : NSObject {
+@objc class Timer {
     var timer : NSTimer! = nil
 
     private(set) var action : ((NSDate) -> (Void))? = nil
