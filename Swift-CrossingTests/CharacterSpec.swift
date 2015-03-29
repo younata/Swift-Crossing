@@ -34,7 +34,7 @@ class CharacterSpec: QuickSpec {
             }
         }
 
-        fdescribe("Setting velocity") {
+        describe("Setting velocity") {
             it("should set the velocity absolutely") {
                 subject.moveCharacter(-1, 0)
                 subject.velocity = Vector2(x: 0.5, z: 1)
@@ -43,7 +43,14 @@ class CharacterSpec: QuickSpec {
             }
         }
 
-        fdescribe("Moving a character") {
+        describe("-updateCharacter:") {
+            it("should not fuck with the character's position when passed a delta of 0") {
+                subject.updateCharacter(0)
+                expect(subject.position).to(equal(SCNVector3Zero))
+            }
+        }
+
+        describe("Moving a character") {
             it("should allow the character to move left") {
                 subject.moveCharacter(-1, 0)
                 subject.updateCharacter(1)

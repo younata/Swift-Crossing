@@ -41,7 +41,9 @@ class Character : SCNNode {
     }
 
     func updateCharacter(delta: NSTimeInterval) {
-        println("\(delta)")
+        if (delta == 0) {
+            return;
+        }
         var magnitude = hypot(movementVector.x, movementVector.z)
         magnitude = magnitude == 0 ? 1 : magnitude
 
